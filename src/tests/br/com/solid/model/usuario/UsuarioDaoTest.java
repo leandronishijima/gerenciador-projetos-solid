@@ -1,10 +1,11 @@
-package br.com.solid.model.usuario;
+package tests.br.com.solid.model.usuario;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
+import br.com.solid.model.usuario.Usuario;
 import br.com.solid.model.usuario.dao.UsuarioDao;
 
 public class UsuarioDaoTest {
