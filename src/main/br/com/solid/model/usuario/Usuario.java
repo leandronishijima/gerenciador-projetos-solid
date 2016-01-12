@@ -9,8 +9,7 @@ public class Usuario {
 	private String email;
 	private Cargo cargo;
 
-	public Usuario(Long id, String nomeCompleto, String usuario, String senha, String email, Cargo cargo) {
-		this.id = id;
+	public Usuario(String nomeCompleto, String usuario, String senha, String email, Cargo cargo) {
 		this.nomeCompleto = nomeCompleto;
 		this.usuario = usuario;
 		this.senha = senha;

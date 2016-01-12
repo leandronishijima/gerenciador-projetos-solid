@@ -1,7 +1,9 @@
 package test.br.com.solid.model.usuario.dao;
 
+import static main.br.com.solid.model.usuario.Cargo.ANALISTA;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.dao.UsuarioDao;
@@ -35,7 +37,10 @@ public class UsuarioDaoTest {
 		
 		assertAtributosPadroes(usr, usuarioPesquisado);
 		
-		usuarioPesquisado.setEmail("leandro.nishijima@gmail.com");
+		usr.setEmail("leandro.nishijima@gmail.com");
+		dao.save(usr);
+		
+		usuarioPesquisado = dao.pesquisaPorId(usr.getId());
 		
 		assertThat(usuarioPesquisado, equalTo(usr));
 		
@@ -45,9 +50,27 @@ public class UsuarioDaoTest {
 		assertThat(usuarioPesquisado.getEmail(), equalTo("leandro.nishijima@gmail.com"));
 		assertThat(usuarioPesquisado.getCargo(), equalTo(DESENVOLVEDOR));
 	}
+	
+	@Test
+	public void listAllUsuarios() {
+		Usuario leandro = criaUsuarioTeste();
+		dao.save(leandro);
+		
+		Usuario samuel = new Usuario("Samuel Oliveira Correia", "samuel.oliveira", "samuelTeste", "samueloliveiracorreia@teleworm.us", ANALISTA);
+		dao.save(samuel);
+		
+		Usuario gabriela = new Usuario("Gabriela Ribeiro Martins", "gabriela.martins", "gabrielaRibeiroTeste", "gabrielaribeiromartins@armyspy.com", DESENVOLVEDOR);
+		dao.save(gabriela);
+		
+		assertThat(dao.listAll(), hasSize(3));
+		
+		assertThat(dao.pesquisaPorId(leandro.getId()).getNomeCompleto(), equalTo("Leandro Nishijima"));
+		assertThat(dao.pesquisaPorId(samuel.getId()).getNomeCompleto(), equalTo("Samuel Oliveira Correia"));
+		assertThat(dao.pesquisaPorId(gabriela.getId()).getNomeCompleto(), equalTo("Gabriela Ribeiro Martins"));
+	}
 
 	private Usuario criaUsuarioTeste() {
-		return new Usuario(1l, "Leandro Nishijima", "leandro.nishijima", "senhaTeste", "leandro.nishijima@github.com", DESENVOLVEDOR);
+		return new Usuario("Leandro Nishijima", "leandro.nishijima", "senhaTeste", "leandro.nishijima@github.com", DESENVOLVEDOR);
 	}
 	
 	private Usuario criaEPersisteUsuario() {
