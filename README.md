@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/leandronishijima/project-tracking-solid.svg?branch=master)](https://travis-ci.org/leandronishijima/project-tracking-solid)
+[![Build Status](https://travis-ci.org/leandronishijima/gerenciador-projetos-solid.svg?branch=master)](https://travis-ci.org/leandronishijima/gerenciador-projetos-solid)
 
 # Gerenciador de projetos S.O.L.I.D.
 ---
