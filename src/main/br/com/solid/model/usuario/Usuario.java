@@ -1,4 +1,4 @@
-package br.com.solid.model.usuario;
+package main.br.com.solid.model.usuario;
 
 public class Usuario {
 	
@@ -7,13 +7,15 @@ public class Usuario {
 	private String usuario;
 	private String senha;
 	private String email;
+	private Cargo cargo;
 
-	public Usuario(Long id, String nomeCompleto, String usuario, String senha, String email) {
+	public Usuario(Long id, String nomeCompleto, String usuario, String senha, String email, Cargo cargo) {
 		this.id = id;
 		this.nomeCompleto = nomeCompleto;
 		this.usuario = usuario;
 		this.senha = senha;
 		this.email = email;
+		this.cargo = cargo;
 	}
 	
 	public void setId(Long id) {
@@ -35,9 +37,17 @@ public class Usuario {
 	public String getSenha() {
 		return senha;
 	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getEmail() {
 		return email;
+	}
+	
+	public Cargo getCargo() {
+		return cargo;
 	}
 	
 	@Override

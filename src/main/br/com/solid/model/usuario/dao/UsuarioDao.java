@@ -1,9 +1,9 @@
-package br.com.solid.model.usuario.dao;
+package main.br.com.solid.model.usuario.dao;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.solid.model.usuario.Usuario;
+import main.br.com.solid.model.usuario.Usuario;
 
 public class UsuarioDao {
 	
