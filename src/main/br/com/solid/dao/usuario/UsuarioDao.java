@@ -1,4 +1,4 @@
-package main.br.com.solid.model.usuario.dao;
+package main.br.com.solid.dao.usuario;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,13 +15,11 @@ public class UsuarioDao {
 		dataBaseUsers = new HashMap<Long, Usuario>();
 	}
 
-	public void save(Usuario usr) {
-		usr.setId(geraIdUnico(usr));
+	public void saveOrUpdate(Usuario usr) {
+		if(usr.getId() == null)
+			usr.setId(geraIdUnico(usr));
+		
 		dataBaseUsers.put(usr.getId(), usr);
-	}
-
-	private Long geraIdUnico(Usuario usr) {
-		return (long) (usr.hashCode() * 17);
 	}
 
 	public Usuario pesquisaPorId(Long id) {
@@ -30,6 +28,10 @@ public class UsuarioDao {
 
 	public List<Usuario> listAll() {
 		return new ArrayList<Usuario>(dataBaseUsers.values());
+	}
+	
+	private Long geraIdUnico(Usuario usr) {
+		return (long) (usr.hashCode() * 17);
 	}
 
 }

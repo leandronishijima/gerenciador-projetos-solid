@@ -1,12 +1,12 @@
-package test.br.com.solid.model.usuario.dao;
+package test.br.com.solid.dao.usuario;
 
 import static main.br.com.solid.model.usuario.Cargo.ANALISTA;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
+import main.br.com.solid.dao.usuario.UsuarioDao;
 import main.br.com.solid.model.usuario.Usuario;
-import main.br.com.solid.model.usuario.dao.UsuarioDao;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +38,7 @@ public class UsuarioDaoTest {
 		assertAtributosPadroes(usr, usuarioPesquisado);
 		
 		usr.setEmail("leandro.nishijima@gmail.com");
-		dao.save(usr);
+		dao.saveOrUpdate(usr);
 		
 		usuarioPesquisado = dao.pesquisaPorId(usr.getId());
 		
@@ -54,13 +54,13 @@ public class UsuarioDaoTest {
 	@Test
 	public void listAllUsuarios() {
 		Usuario leandro = criaUsuarioTeste();
-		dao.save(leandro);
+		dao.saveOrUpdate(leandro);
 		
 		Usuario samuel = new Usuario("Samuel Oliveira Correia", "samuel.oliveira", "samuelTeste", "samueloliveiracorreia@teleworm.us", ANALISTA);
-		dao.save(samuel);
+		dao.saveOrUpdate(samuel);
 		
 		Usuario gabriela = new Usuario("Gabriela Ribeiro Martins", "gabriela.martins", "gabrielaRibeiroTeste", "gabrielaribeiromartins@armyspy.com", DESENVOLVEDOR);
-		dao.save(gabriela);
+		dao.saveOrUpdate(gabriela);
 		
 		assertThat(dao.listAll(), hasSize(3));
 		
@@ -75,7 +75,7 @@ public class UsuarioDaoTest {
 	
 	private Usuario criaEPersisteUsuario() {
 		Usuario usr = criaUsuarioTeste();
-		dao.save(usr);
+		dao.saveOrUpdate(usr);
 		return usr;
 	}
 	
