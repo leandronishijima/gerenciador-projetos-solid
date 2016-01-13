@@ -53,5 +53,15 @@ public class Usuario {
 	public String toString() {
 		return nomeCompleto; 
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Usuario other = (Usuario) obj;
+		
+		return 
+				getNomeCompleto().equals(other.getNomeCompleto()) &&
+				getUsuario().equals(other.getUsuario()) &&
+				getEmail().equals(other.getEmail());
+	}
 
 }

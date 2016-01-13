@@ -2,12 +2,14 @@ package test.br.com.solid.dao.usuario;
 
 import static main.br.com.solid.model.usuario.Cargo.ANALISTA;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
+import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 import main.br.com.solid.dao.usuario.UsuarioDao;
 import main.br.com.solid.model.usuario.Usuario;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -67,6 +69,16 @@ public class UsuarioDaoTest {
 		assertThat(dao.pesquisaPorId(leandro.getId()).getNomeCompleto(), equalTo("Leandro Nishijima"));
 		assertThat(dao.pesquisaPorId(samuel.getId()).getNomeCompleto(), equalTo("Samuel Oliveira Correia"));
 		assertThat(dao.pesquisaPorId(gabriela.getId()).getNomeCompleto(), equalTo("Gabriela Ribeiro Martins"));
+	}
+	
+	@Test
+	public void excluiUsuario() {
+		Usuario usr = criaEPersisteUsuario();
+		
+		assertThat(dao.listAll(), hasSize(1));
+		
+		dao.exclui(usr);
+		assertThat(dao.listAll(), empty());
 	}
 
 	private Usuario criaUsuarioTeste() {

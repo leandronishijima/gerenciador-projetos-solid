@@ -34,4 +34,8 @@ public class UsuarioDao {
 		return (long) (usr.hashCode() * 17);
 	}
 
+	public void exclui(Usuario usuario) {
+		dataBaseUsers.remove(usuario.getId(), usuario);
+	}
+
 }
