@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 import main.br.com.solid.dao.usuario.UsuarioDao;
 import main.br.com.solid.model.usuario.Usuario;
+import main.br.com.solid.model.usuario.UsuarioBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -57,10 +58,22 @@ public class UsuarioDaoTest {
 		Usuario leandro = criaUsuarioTeste();
 		dao.saveOrUpdate(leandro);
 		
-		Usuario samuel = new Usuario("Samuel Oliveira Correia", "samuel.oliveira", "samuelTeste", "samueloliveiracorreia@teleworm.us", ANALISTA);
+		Usuario samuel = UsuarioBuilder.builder()
+							.nomeCompleto("Samuel Oliveira Correia")
+							.usuario("samuel.oliveira")
+							.senha("samuelTeste")
+							.email("samueloliveiracorreia@teleworm.us")
+							.cargo(ANALISTA)
+							.build();
+		
 		dao.saveOrUpdate(samuel);
 		
-		Usuario gabriela = new Usuario("Gabriela Ribeiro Martins", "gabriela.martins", "gabrielaRibeiroTeste", "gabrielaribeiromartins@armyspy.com", DESENVOLVEDOR);
+		Usuario gabriela = UsuarioBuilder.builder()
+							.nomeCompleto("Gabriela Ribeiro Martins")
+							.usuario("gabriela.martins").senha("gabrielaRibeiroTeste")
+							.email("gabrielaribeiromartins@armyspy.com").cargo(DESENVOLVEDOR)
+							.build();
+		
 		dao.saveOrUpdate(gabriela);
 		
 		assertThat(dao.listAll(), hasSize(3));
@@ -81,7 +94,13 @@ public class UsuarioDaoTest {
 	}
 
 	private Usuario criaUsuarioTeste() {
-		return new Usuario("Leandro Nishijima", "leandro.nishijima", "senhaTeste", "leandro.nishijima@github.com", DESENVOLVEDOR);
+		return UsuarioBuilder.builder()
+				.nomeCompleto("Leandro Nishijima")
+				.usuario("leandro.nishijima")
+				.senha("senhaTeste")
+				.email("leandro.nishijima@github.com")
+				.cargo(DESENVOLVEDOR)
+				.build();
 	}
 	
 	private Usuario criaEPersisteUsuario() {

@@ -6,7 +6,9 @@ import static main.br.com.solid.model.usuario.Cargo.SUPORTE;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
+import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
+import main.br.com.solid.model.usuario.UsuarioBuilder;
 import main.br.com.solid.service.usuario.UsuarioService;
 
 import org.junit.Before;
@@ -40,11 +42,21 @@ public class UsuarioServiceTest {
 	@Test
 	public void listaTodosUsuariosListados() {
 		persisteUsuario(criaUsuarioPadraoTeste());
-		persisteUsuario(new Usuario("Samuel Oliveira Correia", "samuel.oliveira", "samuelTeste", "samueloliveiracorreia@teleworm.us", ANALISTA));
-		persisteUsuario(new Usuario("Gabriela Ribeiro Martins", "gabriela.martins", "gabrielaRibeiroTeste", "gabrielaribeiromartins@armyspy.com", DESENVOLVEDOR));
-		persisteUsuario(new Usuario("Rebeca Silva Castro", "rebeca.castro", "rebecaTeste", "rebecasilvacastro@teleworm.us", SUPORTE));
+		persisteUsuario(criaUsuario("Samuel Oliveira Correia", "samuel.oliveira", "samuelTeste", "samueloliveiracorreia@teleworm.us", ANALISTA));
+		persisteUsuario(criaUsuario("Gabriela Ribeiro Martins", "gabriela.martins", "gabrielaRibeiroTeste", "gabrielaribeiromartins@armyspy.com", DESENVOLVEDOR));
+		persisteUsuario(criaUsuario("Rebeca Silva Castro", "rebeca.castro", "rebecaTeste", "rebecasilvacastro@teleworm.us", SUPORTE));
 		
 		assertThat(service.listaTodos(), hasSize(4));
+	}
+
+	private Usuario criaUsuario(String nomeCompleto, String usuario, String senha, String email, Cargo cargo) {
+		return UsuarioBuilder.builder()
+				.nomeCompleto(nomeCompleto)
+				.usuario(usuario)
+				.senha(senha)
+				.email(email)
+				.cargo(cargo)
+				.build();
 	}
 	
 	private boolean persisteUsuario(Usuario usuario) {
@@ -52,7 +64,7 @@ public class UsuarioServiceTest {
 	}
 	
 	private Usuario criaUsuarioPadraoTeste() {
-		return new Usuario("Leandro Nishijima", "leandro.nishijima", "senhaTeste", "leandronishijima@github.com", DESENVOLVEDOR);
+		return criaUsuario("Leandro Nishijima", "leandro.nishijima", "senhaTeste", "leandronishijima@github.com", DESENVOLVEDOR);
 	}
 	
 	private void validaDadosUsuarioPadrao(Usuario usuarioPesquisado) {
