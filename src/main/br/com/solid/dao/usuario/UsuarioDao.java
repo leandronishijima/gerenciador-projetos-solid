@@ -1,10 +1,10 @@
 package main.br.com.solid.dao.usuario;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import main.br.com.solid.dao.Database;
 import main.br.com.solid.model.usuario.Usuario;
 
 public class UsuarioDao {
@@ -12,7 +12,7 @@ public class UsuarioDao {
 	private static Map<Long, Usuario> dataBaseUsers;
 	
 	public UsuarioDao() {
-		dataBaseUsers = new HashMap<Long, Usuario>();
+		dataBaseUsers = Database.getInstance().getUsuarios();
 	}
 
 	public void saveOrUpdate(Usuario usr) {

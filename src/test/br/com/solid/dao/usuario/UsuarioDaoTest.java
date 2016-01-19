@@ -9,7 +9,6 @@ import static org.junit.Assert.assertThat;
 import main.br.com.solid.dao.usuario.UsuarioDao;
 import main.br.com.solid.model.usuario.Usuario;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
