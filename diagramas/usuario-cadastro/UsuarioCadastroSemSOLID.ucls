@@ -35,7 +35,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/service/usuario/UsuarioService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="894" y="620"/>    
+    <position height="-1" width="-1" x="900" y="623"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
       <multiplicity id="7" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true" variant="ASSOCIATION"/>    
-    <display labels="true" multiplicity="false"/>  
+    <display labels="false" multiplicity="false"/>  
   </association>  
   <association id="8">    
     <end type="SOURCE" refId="3" navigable="false" variant="ASSOCIATION">      
@@ -56,7 +56,7 @@
       <multiplicity id="10" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true" variant="ASSOCIATION"/>    
-    <display labels="true" multiplicity="false"/>  
+    <display labels="false" multiplicity="false"/>  
   </association>  
   <association id="11">    
     <end type="SOURCE" refId="4" navigable="false" variant="ASSOCIATION">      
@@ -64,7 +64,7 @@
       <multiplicity id="13" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true" variant="ASSOCIATION"/>    
-    <display labels="true" multiplicity="false"/>  
+    <display labels="false" multiplicity="false"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
