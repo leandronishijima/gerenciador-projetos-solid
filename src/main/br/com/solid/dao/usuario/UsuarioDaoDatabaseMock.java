@@ -7,14 +7,15 @@ import java.util.Map;
 import main.br.com.solid.dao.Database;
 import main.br.com.solid.model.usuario.Usuario;
 
-public class UsuarioDao {
+public class UsuarioDaoDatabaseMock implements UsuarioDao {
 	
 	private static Map<Long, Usuario> dataBaseUsers;
 	
-	public UsuarioDao() {
+	public UsuarioDaoDatabaseMock() {
 		dataBaseUsers = Database.getInstance().getUsuarios();
 	}
 
+	@Override
 	public void saveOrUpdate(Usuario usr) {
 		if(usr.getId() == null)
 			usr.setId(geraIdUnico(usr));
@@ -22,20 +23,24 @@ public class UsuarioDao {
 		dataBaseUsers.put(usr.getId(), usr);
 	}
 
+	@Override
 	public Usuario pesquisaPorId(Long id) {
 		return dataBaseUsers.get(id);
 	}
 
+	@Override
 	public List<Usuario> listAll() {
 		return new ArrayList<Usuario>(dataBaseUsers.values());
+	}
+	
+	@Override
+	public void exclui(Usuario usuario) {
+		dataBaseUsers.remove(usuario.getId(), usuario);
 	}
 	
 	private Long geraIdUnico(Usuario usr) {
 		return (long) (usr.hashCode() * 17);
 	}
 
-	public void exclui(Usuario usuario) {
-		dataBaseUsers.remove(usuario.getId(), usuario);
-	}
 
 }

@@ -9,8 +9,8 @@ public class UsuarioService {
 
 	private UsuarioDao dao;
 	
-	public UsuarioService() {
-		dao = new UsuarioDao();
+	public UsuarioService(UsuarioDao dao) {
+		this.dao = dao;
 	}
 
 	public boolean saveOrUpdate(Usuario usr) {

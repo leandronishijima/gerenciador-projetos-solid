@@ -6,6 +6,7 @@ import static main.br.com.solid.model.usuario.Cargo.SUPORTE;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
+import main.br.com.solid.dao.usuario.UsuarioDaoDatabaseMock;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
@@ -20,7 +21,7 @@ public class UsuarioServiceTest {
 	
 	@Before
 	public void instanciaService() {
-		service = new UsuarioService();
+		service = new UsuarioService(new UsuarioDaoDatabaseMock());
 	}
 
 	@Test
