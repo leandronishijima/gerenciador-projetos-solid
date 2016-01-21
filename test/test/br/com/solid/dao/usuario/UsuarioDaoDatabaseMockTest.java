@@ -13,7 +13,7 @@ import main.br.com.solid.model.usuario.UsuarioBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
-public class UsuarioDaoTest {
+public class UsuarioDaoDatabaseMockTest {
 	
 	private UsuarioDaoDatabaseMock dao;
 

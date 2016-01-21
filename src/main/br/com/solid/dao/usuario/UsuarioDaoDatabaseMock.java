@@ -1,5 +1,7 @@
 package main.br.com.solid.dao.usuario;
 
+import static main.br.com.solid.dao.Database.geraIdUnico;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +40,5 @@ public class UsuarioDaoDatabaseMock implements UsuarioDao {
 		dataBaseUsers.remove(usuario.getId(), usuario);
 	}
 	
-	private Long geraIdUnico(Usuario usr) {
-		return (long) (usr.hashCode() * 17);
-	}
-
 
 }
