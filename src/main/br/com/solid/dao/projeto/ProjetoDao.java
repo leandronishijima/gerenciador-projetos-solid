@@ -19,7 +19,9 @@ public class ProjetoDao {
 	}
 
 	public void saveOrUpdate(Projeto projeto) {
-		projeto.setId(geraIdUnico(projeto));
+		if(projeto.getId() == null)
+			projeto.setId(geraIdUnico(projeto));
+		
 		dataBaseProjetos.put(projeto.getId(), projeto);
 	}
 
@@ -33,6 +35,15 @@ public class ProjetoDao {
 	
 	public void exclui(Usuario usuario) {
 		dataBaseProjetos.remove(usuario.getId(), usuario);
+	}
+
+	public void exclui(Projeto projeto) {
+		Projeto projetoPesquisado = pesquisaPorId(projeto.getId());
+		
+		if(projetoPesquisado == null)
+			throw new RuntimeException("Projeto não encontrado!");
+		
+		dataBaseProjetos.remove(projetoPesquisado.getId());
 	}
 	
 }

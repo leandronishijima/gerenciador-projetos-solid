@@ -35,6 +35,10 @@ public class Projeto {
 	public String getDescricao() {
 		return descricao;
 	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 
 	public List<Usuario> getIntegrantes() {
 		return unmodifiableList(integrantes);
@@ -42,6 +46,12 @@ public class Projeto {
 	
 	public void adicionaIntegrante(Usuario usuario) {
 		integrantes.add(usuario);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Projeto other = (Projeto) obj;
+		return getNome().equals(other.getNome()) && getDescricao().equals(other.getDescricao());
 	}
 	
 	@Override

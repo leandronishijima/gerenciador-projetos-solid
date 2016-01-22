@@ -14,8 +14,7 @@ public class Database {
 	private static Database instance;
 	
 	private Database() {
-		usuarios = new HashMap<Long, Usuario>();
-		projetos = new HashMap<Long, Projeto>();
+		reset();
 	}
 	
 	public Map<Long, Usuario> getUsuarios() {
@@ -30,11 +29,20 @@ public class Database {
 		return (long) (obj.hashCode() * 17);
 	}
 	
+	private void reset() {
+		usuarios = new HashMap<Long, Usuario>();
+		projetos = new HashMap<Long, Projeto>();
+	}
+	
 	public static Database getInstance() {
 		if (instance == null)
 			return new Database();
 		
 		return instance;
+	}
+
+	public static void reinicializa() {
+		getInstance().reset();
 	}
 
 }

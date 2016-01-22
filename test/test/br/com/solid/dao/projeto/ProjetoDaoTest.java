@@ -7,6 +7,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;
+
+import java.util.List;
+
+import main.br.com.solid.dao.Database;
 import main.br.com.solid.dao.projeto.ProjetoDao;
 import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.usuario.Usuario;
@@ -22,6 +26,7 @@ public class ProjetoDaoTest {
 	@Before
 	public void inicializaDao() {
 		dao = new ProjetoDao();
+		Database.reinicializa();
 	}
 
 	@Test
@@ -59,7 +64,51 @@ public class ProjetoDaoTest {
 		assertThat(projPesquisado.getIntegrantes(), hasSize(1));
 		assertThat(projPesquisado.getIntegrantes(), contains(usr));
 	}
+	
+	@Test
+	public void testa_list_all_projetos() {
+		Projeto projeto1 = criaProjetoPadrao();
+		Projeto projeto2 = new Projeto("Novo projeto teste", "Projeto de testes!");
+		
+		dao.saveOrUpdate(projeto1);
+		dao.saveOrUpdate(projeto2);
+		
+		List<Projeto> listAll = dao.listAll();
+		
+		assertThat(listAll, hasSize(2));
+		assertThat(listAll, contains(projeto1, projeto2));
+	}
+	
+	@Test
+	public void testa_persistencia_de_edicao() {
+		Projeto projeto = criaProjetoPadrao();
+		
+		dao.saveOrUpdate(projeto);
+		assertThat(dao.listAll(), hasSize(1));
 
+		projeto.setDescricao("Nova descrição para o projeto");
+		
+		dao.saveOrUpdate(projeto);
+		assertThat(dao.listAll(), hasSize(1));
+		
+		Projeto projetoPesquisado = dao.pesquisaPorId(projeto.getId());
+		
+		assertThat(projetoPesquisado.getId(), equalTo(projeto.getId()));
+		assertThat(projetoPesquisado.getDescricao(), equalTo("Nova descrição para o projeto"));
+	}
+	
+	@Test
+	public void test_exclui() {
+		Projeto projeto = criaProjetoPadrao();
+		
+		dao.saveOrUpdate(projeto);
+		assertThat(dao.listAll(), hasSize(1));
+		
+		dao.exclui(projeto);
+		
+		assertThat(dao.listAll(), hasSize(0));
+	}
+	
 	private void persiste(Projeto proj) {
 		dao.saveOrUpdate(proj);
 		assertThat(proj.getId(), notNullValue());
