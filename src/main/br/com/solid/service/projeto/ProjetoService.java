@@ -13,10 +13,10 @@ public class ProjetoService {
 		dao = new ProjetoDao();
 	}
 
-	public Projeto saveOrUpdate(Projeto projeto) {
+	public boolean saveOrUpdate(Projeto projeto) {
 		dao.saveOrUpdate(projeto);
 		
-		return projeto;
+		return true;
 	}
 
 	public List<Projeto> listAll() {
@@ -25,6 +25,10 @@ public class ProjetoService {
 
 	public Projeto pesquisaProjeto(Long id) {
 		return dao.pesquisaPorId(id);
+	}
+
+	public void exlcui(Projeto projeto) {
+		dao.exclui(projeto);
 	}
 
 }

@@ -34,7 +34,7 @@ public class ProjetoServiceTest {
 	}
 
 	@Test
-	public void listaTodosUsuariosListados() {
+	public void lista_todos_usuarios_cadastrados() {
 		persisteProjeto(criaProjetoPadraoTeste());
 		persisteProjeto(new Projeto("Projeto 1", "Projeto 1 descrição"));
 		persisteProjeto(new Projeto("Projeto 2", "Projeto 2 descrição"));
@@ -43,7 +43,19 @@ public class ProjetoServiceTest {
 		assertThat(service.listAll(), hasSize(4));
 	}
 	
-	private Projeto persisteProjeto(Projeto projeto) {
+	@Test
+	public void exclui_projeto() {
+		Projeto projeto = criaProjetoPadraoTeste();
+		
+		persisteProjeto(projeto);
+		assertThat(service.listAll(), hasSize(1));
+		
+		service.exlcui(projeto);
+		
+		assertThat(service.listAll(), hasSize(0));
+	}
+	
+	private boolean persisteProjeto(Projeto projeto) {
 		return service.saveOrUpdate(projeto);
 	}
 	
