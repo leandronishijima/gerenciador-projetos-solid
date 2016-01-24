@@ -11,43 +11,58 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="main.br.com.solid.dao.projeto.ProjetoDao" project="gerenciador-projetos-solid" 
+  <interface id="2" language="java" name="main.br.com.solid.dao.projeto.ProjetoDao" project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/dao/projeto/ProjetoDao.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="493" y="280"/>    
+    <position height="-1" width="-1" x="492" y="78"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="3" language="java" name="main.br.com.solid.dao.projeto.ProjetoDaoDatabaseMock" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/dao/projeto/ProjetoDaoDatabaseMock.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="494" y="282"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="main.br.com.solid.service.projeto.ProjetoService" 
+  <class id="4" language="java" name="main.br.com.solid.service.projeto.ProjetoService" 
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/service/projeto/ProjetoService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="809" y="281"/>    
+    <position height="-1" width="-1" x="734" y="284"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="4">    
-    <end type="SOURCE" refId="2" navigable="false" variant="ASSOCIATION">      
-      <attribute id="5" name="dataBaseProjetos"/>      
-      <multiplicity id="6" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true" variant="ASSOCIATION"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="7">    
-    <end type="SOURCE" refId="3" navigable="false" variant="ASSOCIATION">      
-      <attribute id="8" name="dao"/>      
-      <multiplicity id="9" minimum="0" maximum="1"/>    
+  <association id="5">    
+    <end type="SOURCE" refId="4" navigable="false" variant="ASSOCIATION">      
+      <attribute id="6" name="dao"/>      
+      <multiplicity id="7" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true" variant="ASSOCIATION"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
+  <association id="8">    
+    <end type="SOURCE" refId="3" navigable="false" variant="ASSOCIATION">      
+      <attribute id="9" name="dataBaseProjetos"/>      
+      <multiplicity id="10" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true" variant="ASSOCIATION"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <realization id="11">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

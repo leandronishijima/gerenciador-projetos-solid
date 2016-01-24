@@ -3,6 +3,7 @@ package test.br.com.solid.service.projeto;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
+import main.br.com.solid.dao.projeto.ProjetoDaoDatabaseMock;
 import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.service.projeto.ProjetoService;
 
@@ -15,7 +16,7 @@ public class ProjetoServiceTest {
 	
 	@Before
 	public void instanciaService() {
-		service = new ProjetoService();
+		service = new ProjetoService(new ProjetoDaoDatabaseMock());
 	}
 
 	@Test

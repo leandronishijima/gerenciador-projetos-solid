@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 import java.util.List;
 
 import main.br.com.solid.dao.Database;
-import main.br.com.solid.dao.projeto.ProjetoDao;
+import main.br.com.solid.dao.projeto.ProjetoDaoDatabaseMock;
 import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
@@ -21,11 +21,11 @@ import org.junit.Test;
 
 public class ProjetoDaoTest {
 
-	private ProjetoDao dao;
+	private ProjetoDaoDatabaseMock dao;
 	
 	@Before
 	public void inicializaDao() {
-		dao = new ProjetoDao();
+		dao = new ProjetoDaoDatabaseMock();
 		Database.reinicializa();
 	}
 

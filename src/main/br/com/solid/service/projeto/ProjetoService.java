@@ -9,8 +9,8 @@ public class ProjetoService {
 	
 	private ProjetoDao dao;
 	
-	public ProjetoService() {
-		dao = new ProjetoDao();
+	public ProjetoService(ProjetoDao dao) {
+		this.dao = dao;
 	}
 
 	public boolean saveOrUpdate(Projeto projeto) {
