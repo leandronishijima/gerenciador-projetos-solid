@@ -1,15 +1,18 @@
 package br.com.solid.model.projeto.tarefa;
 
 import static java.time.Month.JANUARY;
-import static main.br.com.solid.dao.projeto.tarefa.CategoriaTarefa.BUG;
-import static main.br.com.solid.dao.projeto.tarefa.StatusTarefa.EM_ANALISE;
+import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.BUG;
+import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
+import static main.br.com.solid.model.usuario.Cargo.ANALISTA;
+import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
+import static main.br.com.solid.model.usuario.Cargo.GERENTE;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
 
-import main.br.com.solid.dao.projeto.tarefa.Tarefa;
+import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
@@ -41,7 +44,7 @@ public class TarefaTest {
 	}
 
 	@Test
-	public void adiciona_watchers() {
+	public void adiciona_watcher() {
 		Tarefa tarefa = criaTarefaBugPadrao();
 		
 		Usuario usuario = criaUsuarioPadrao();
@@ -49,6 +52,17 @@ public class TarefaTest {
 		tarefa.adicionaWatcher(usuario);
 		
 		assertThat(tarefa.getWatchers(), hasSize(1));
+	}
+	
+	@Test
+	public void adiciona_varios_watchers() {
+		Tarefa tarefa = criaTarefaBugPadrao();
+		
+		tarefa.adicionaWatcher(criaUsuarioPadrao());
+		tarefa.adicionaWatcher(criaUsuario("Nome completo teste", "alguem@github.com", "nome.teste", ANALISTA));
+		tarefa.adicionaWatcher(criaUsuario("Novo nome completo teste", "um_novo_alguem@github.com", "novo.nome", GERENTE));
+		
+		assertThat(tarefa.getWatchers(), hasSize(3));
 	}
 	
 	@Test(expected = UnsupportedOperationException.class)
@@ -61,19 +75,23 @@ public class TarefaTest {
 	}
 	
 	private Usuario criaUsuarioPadrao() {
-		Usuario usuario = UsuarioBuilder.builder()
-			.cargo(Cargo.DESENVOLVEDOR)
-			.email("teste@teste.com")
-			.nomeCompleto("Leandro Nishijima")
-			.senha("teste")
-			.usuario("leandro.nishijima")
-			.build();
-		return usuario;
+		return criaUsuario("Leandro Nishijima", "leandro.nishijima@github.com", "leandro.nishijima", DESENVOLVEDOR);
+	}
+	
+	private Usuario criaUsuario(String nomeCompleto, String email, String usuario, Cargo cargo) {
+		Usuario usr = UsuarioBuilder.builder()
+				.cargo(cargo)
+				.email(email)
+				.nomeCompleto(nomeCompleto)
+				.senha("teste")
+				.usuario(usuario)
+				.build();
+			
+			return usr;
 	}
 	
 	private Tarefa criaTarefaBugPadrao() {
-		LocalDate dataCriacao = LocalDate.of(2015, JANUARY, 29);
-		Tarefa tarefa = new Tarefa(1, dataCriacao, BUG);
+		Tarefa tarefa = new Tarefa("Bug!", "Bug a ser corrigido!", 1, LocalDate.of(2016, JANUARY, 29), BUG);
 		return tarefa;
 	}
 

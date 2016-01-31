@@ -1,4 +1,4 @@
-package main.br.com.solid.dao.projeto.tarefa;
+package main.br.com.solid.model.projeto.tarefa;
 
 public enum CategoriaTarefa {
 	

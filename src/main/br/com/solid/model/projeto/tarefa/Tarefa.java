@@ -1,33 +1,37 @@
-package main.br.com.solid.dao.projeto.tarefa;
+package main.br.com.solid.model.projeto.tarefa;
 
 import static java.util.Collections.unmodifiableList;
-import static main.br.com.solid.dao.projeto.tarefa.StatusTarefa.EM_ANALISE;
+import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import main.br.com.solid.model.usuario.Usuario;
 
 public class Tarefa {
 	
+	private String titulo;
+	private String descricao;
 	private CategoriaTarefa categoria;
 	private StatusTarefa status;
 	private Usuario subResponsavel1;
 	private Usuario subResponsavel2;
 	private List<Usuario> watchers;
 	private LocalDate inicioPrevisto;
-	private LocalDate fimPrevisoto;
+	private LocalDate fimPrevisto;
 	private int estimativa;
 	private LocalDate dataCriacao;
 	
-	public Tarefa(int estimativa, LocalDate dataCriacao, CategoriaTarefa categoria) {
-		this.watchers = new ArrayList<Usuario>();
+	public Tarefa(String titulo, String descricao, int estimativa, LocalDate inicioPrevisto, CategoriaTarefa categoria) {
+		this.titulo = titulo;
+		this.descricao = descricao;
 		this.estimativa = estimativa;
-		this.dataCriacao = dataCriacao;
+		this.dataCriacao = LocalDate.now();
 		this.categoria = categoria;
+		this.inicioPrevisto = inicioPrevisto;
 		this.status = EM_ANALISE;
+		this.watchers = new ArrayList<Usuario>();
 	}
 
 	public StatusTarefa getStatus() {
@@ -66,4 +70,36 @@ public class Tarefa {
 		return unmodifiableList(watchers);
 	}
 	
+	public LocalDate getFimPrevisto() {
+		return fimPrevisto;
+	}
+	
+	public void setFimPrevisto(LocalDate fimPrevisto) {
+		this.fimPrevisto = fimPrevisto;
+	}
+
+	public LocalDate getInicioPrevisto() {
+		return inicioPrevisto;
+	}
+
+	public long getEstimativa() {
+		return estimativa;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 }
