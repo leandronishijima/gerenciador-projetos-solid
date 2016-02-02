@@ -5,6 +5,7 @@ import static java.util.Collections.unmodifiableList;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.usuario.Usuario;
 
 public class Projeto {
@@ -12,12 +13,14 @@ public class Projeto {
 	private String nome;
 	private String descricao;
 	private List<Usuario> integrantes;
+	private List<Tarefa> tarefas;
 	private Long id;
 	
 	public Projeto(String nome, String descricao) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.integrantes = new ArrayList<Usuario>();
+		this.tarefas = new ArrayList<Tarefa>();
 	}
 
 	public Long getId() {
@@ -57,6 +60,14 @@ public class Projeto {
 	@Override
 	public String toString() {
 		return getNome();
+	}
+
+	public void adicionaTarefa(Tarefa tarefa) {
+		tarefas.add(tarefa);
+	}
+
+	public List<Tarefa> getTarefas() {
+		return unmodifiableList(tarefas);
 	}
 
 }

@@ -25,9 +25,11 @@ public class TarefaTest {
 	public void criacao_tarefa_happy_day() {
 		Tarefa tarefa = criaTarefaBugPadrao();
 		
+		assertThat(tarefa.getTitulo(), equalTo("Bug!"));
+		assertThat(tarefa.getDescricao(), equalTo("Bug a ser corrigido!"));
 		assertThat(tarefa.getStatus(), equalTo(EM_ANALISE));
 		assertThat(tarefa.getCategoria(), equalTo(BUG));
-		assertThat(tarefa.getDataCriacao(), equalTo(LocalDate.of(2015, JANUARY, 29)));
+		assertThat(tarefa.getDataCriacao(), equalTo(LocalDate.now()));
 	}
 	
 	@Test
