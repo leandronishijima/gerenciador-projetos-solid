@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/leandronishijima/gerenciador-projetos-solid.svg?branch=master)](https://travis-ci.org/leandronishijima/gerenciador-projetos-solid)
+[![codecov.io](https://codecov.io/github/leandronishijima/gerenciador-projetos-solid/coverage.svg?branch=master)](https://codecov.io/github/leandronishijima/gerenciador-projetos-solid?branch=master)
 
 # Gerenciador de projetos S.O.L.I.D.
 ---
