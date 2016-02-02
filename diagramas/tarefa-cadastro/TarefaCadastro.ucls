@@ -5,7 +5,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/Tarefa.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="418" y="315"/>    
+    <position height="-1" width="-1" x="412" y="375"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -16,87 +16,114 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/CategoriaTarefa.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="133" y="151"/>    
+    <position height="-1" width="-1" x="121" y="119"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="3" language="java" name="main.br.com.solid.model.projeto.tarefa.StatusTarefa" 
+  <enumeration id="3" language="java" name="main.br.com.solid.model.projeto.tarefa.Estimativa" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/Estimativa.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="121" y="341"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="4" language="java" name="main.br.com.solid.model.projeto.tarefa.StatusTarefa" 
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/StatusTarefa.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="137" y="467"/>    
+    <position height="-1" width="-1" x="122" y="625"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="4" language="java" name="main.br.com.solid.model.projeto.tarefa.CalculadoraDeEstimativa" 
+  <class id="5" language="java" name="main.br.com.solid.model.projeto.tarefa.TarefaBuilder" 
     project="gerenciador-projetos-solid" 
-    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/CalculadoraDeEstimativa.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="742" y="527"/>    
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/TarefaBuilder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="701" y="141"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="main.br.com.solid.model.projeto.Projeto" project="gerenciador-projetos-solid" 
+  <class id="6" language="java" 
+    name="main.br.com.solid.service.projeto.tarefa.calculadoraestimativa.CalculadoraDeEstimativa" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/service/projeto/tarefa/calculadoraestimativa/CalculadoraDeEstimativa.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="732" y="343"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="main.br.com.solid.model.projeto.Projeto" project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/Projeto.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="740" y="216"/>    
+    <position height="-1" width="-1" x="739" y="619"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="6">    
+  <association id="8">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="7" name="status">        
-        <position height="0" width="0" x="2" y="153"/>      
-      </attribute>      
-      <multiplicity id="8" minimum="0" maximum="1">        
-        <position height="0" width="0" x="2" y="153"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="9">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="10" name="tarefa">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="11" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="12">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="13" name="categoria">        
-        <position height="0" width="0" x="-1" y="17"/>      
-      </attribute>      
-      <multiplicity id="14" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-1" y="17"/>      
-      </multiplicity>    
+      <attribute id="9" name="categoria"/>      
+      <multiplicity id="10" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <association id="15">    
+  <association id="11">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="16" name="tarefas"/>      
-      <multiplicity id="17" minimum="0" maximum="2147483647"/>    
+      <attribute id="12" name="tarefa"/>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="14">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="15" name="status"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="17">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="18" name="tarefas"/>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="21" name="tarefa"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="24" name="estimativa"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

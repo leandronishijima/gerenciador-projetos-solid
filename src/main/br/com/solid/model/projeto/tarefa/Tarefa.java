@@ -20,26 +20,17 @@ public class Tarefa {
 	private List<Usuario> watchers;
 	private LocalDate inicioPrevisto;
 	private LocalDate fimPrevisto;
-	private int estimativa;
+	private Estimativa estimativa;
 	private LocalDate dataCriacao;
 	
-	public Tarefa(String titulo, String descricao, int estimativa, LocalDate inicioPrevisto, CategoriaTarefa categoria) {
-		this.titulo = titulo;
-		this.descricao = descricao;
-		this.estimativa = estimativa;
-		this.dataCriacao = LocalDate.now();
-		this.categoria = categoria;
-		this.inicioPrevisto = inicioPrevisto;
+	protected Tarefa() {
 		this.status = EM_ANALISE;
+		this.dataCriacao = LocalDate.now();
 		this.watchers = new ArrayList<Usuario>();
 	}
-
+	
 	public StatusTarefa getStatus() {
 		return status;
-	}
-
-	public CategoriaTarefa getCategoria() {
-		return categoria;
 	}
 
 	public LocalDate getDataCriacao() {
@@ -81,9 +72,17 @@ public class Tarefa {
 	public LocalDate getInicioPrevisto() {
 		return inicioPrevisto;
 	}
+	
+	public void setInicioPrevisto(LocalDate inicioPrevisto) {
+		this.inicioPrevisto = inicioPrevisto;
+	}
 
-	public long getEstimativa() {
+	public Estimativa getEstimativa() {
 		return estimativa;
+	}
+	
+	public void setEstimativa(Estimativa estimativa) {
+		this.estimativa = estimativa;
 	}
 
 	public String getTitulo() {
@@ -100,6 +99,14 @@ public class Tarefa {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public CategoriaTarefa getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaTarefa categoria) {
+		this.categoria = categoria;
 	}
 
 }

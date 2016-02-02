@@ -1,6 +1,8 @@
-package main.br.com.solid.model.projeto.tarefa;
+package main.br.com.solid.service.projeto.tarefa.calculadoraestimativa;
 
 import java.time.LocalDate;
+
+import main.br.com.solid.model.projeto.tarefa.Tarefa;
 
 public class CalculadoraDeEstimativa {
 	
@@ -9,10 +11,10 @@ public class CalculadoraDeEstimativa {
 	public CalculadoraDeEstimativa(Tarefa tarefa) {
 		this.tarefa = tarefa;
 	}
-
+	
 	public void calculaFimPrevisto() {
 		LocalDate inicioPrevisto = tarefa.getInicioPrevisto();
-		tarefa.setFimPrevisto(inicioPrevisto.plusDays(tarefa.getEstimativa()));
+		tarefa.setFimPrevisto(inicioPrevisto.plusDays(tarefa.getEstimativa().getQtdDias()));
 	}
 	
 

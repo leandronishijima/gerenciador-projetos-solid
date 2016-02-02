@@ -2,6 +2,7 @@ package br.com.solid.model.projeto.tarefa;
 
 import static java.time.Month.JANUARY;
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.BUG;
+import static main.br.com.solid.model.projeto.tarefa.Estimativa.UM_DIA;
 import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
 import static main.br.com.solid.model.usuario.Cargo.ANALISTA;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertThat;
 import java.time.LocalDate;
 
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
+import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
@@ -93,7 +95,12 @@ public class TarefaTest {
 	}
 	
 	private Tarefa criaTarefaBugPadrao() {
-		Tarefa tarefa = new Tarefa("Bug!", "Bug a ser corrigido!", 1, LocalDate.of(2016, JANUARY, 29), BUG);
+		Tarefa tarefa = TarefaBuilder.builder()
+				.titulo("Bug!")
+				.comDescricao("Bug a ser corrigido!")
+				.comEstimativa(UM_DIA)
+				.comPrevisaoDeInicioEm(LocalDate.of(2016, JANUARY, 29))
+				.comCategoria(BUG).build();
 		return tarefa;
 	}
 

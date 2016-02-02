@@ -2,6 +2,7 @@ package br.com.solid.service.projeto.tarefa;
 
 import static java.time.Month.JANUARY;
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.OS;
+import static main.br.com.solid.model.projeto.tarefa.Estimativa.UM_DIA;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
@@ -12,6 +13,7 @@ import main.br.com.solid.dao.projeto.ProjetoDao;
 import main.br.com.solid.dao.projeto.ProjetoDaoDatabaseMock;
 import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
+import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 
 import org.junit.Test;
 
@@ -36,7 +38,12 @@ public class TarefaServiceTest {
 	}
 	
 	private Tarefa criaTarefaDesenvolvimento() {
-		Tarefa tarefa = new Tarefa("OS-01", "Desenvolvimento de nova funcionalidade", 1, LocalDate.of(2016, JANUARY, 30), OS);
+		Tarefa tarefa = TarefaBuilder.builder()
+				.titulo("OS-01")
+				.comDescricao("Desenvolvimento de nova funcionalidade")
+				.comEstimativa(UM_DIA)
+				.comPrevisaoDeInicioEm(LocalDate.of(2016, JANUARY, 30))
+				.comCategoria(OS).build();
 		return tarefa;
 	}
 
