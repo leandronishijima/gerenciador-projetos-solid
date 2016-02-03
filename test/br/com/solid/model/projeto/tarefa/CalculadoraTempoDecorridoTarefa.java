@@ -3,6 +3,7 @@ package br.com.solid.model.projeto.tarefa;
 import static java.time.Month.JANUARY;
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.OS;
 import static main.br.com.solid.model.projeto.tarefa.Estimativa.UM_DIA;
+import static main.br.com.solid.model.projeto.tarefa.logwork.CalculadoraDeTempoDecorrido.horasDecorridas;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -11,9 +12,10 @@ import static org.junit.Assert.assertThat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import main.br.com.solid.model.projeto.tarefa.LogWork;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
+import main.br.com.solid.model.projeto.tarefa.logwork.LogWork;
+import main.br.com.solid.model.projeto.tarefa.logwork.LogWorkBuilder;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
 
@@ -25,12 +27,15 @@ public class CalculadoraTempoDecorridoTarefa {
 	public void calcula_tempo_decorrido_tarefa_dentro_do_estimado() {
 		Tarefa os = criaTarefaOsPadrao();
 
-		LogWork log = new LogWork(criaUsuarioPadrao(), LocalDateTime.of(2016, JANUARY, 1, 9, 00), LocalDateTime.of(2016, JANUARY, 1, 12, 00));
+		LogWork log = LogWorkBuilder.builder()
+				.usuario(criaUsuarioPadrao())
+				.iniciouEm(LocalDateTime.of(2016, JANUARY, 1, 9, 00))
+				.finalizouEm(LocalDateTime.of(2016, JANUARY, 1, 12, 00)).build();
 		
 		os.adicionaLogWork(log);
 		
 		assertThat(os.getLogsWorks(), hasSize(1));
-		assertThat(os.getHorasDecorridas(), equalTo(10800l));
+		assertThat(horasDecorridas(os.getLogsWorks()), equalTo(10800l));
 	}
 
 	private Tarefa criaTarefaOsPadrao() {

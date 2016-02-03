@@ -1,4 +1,4 @@
-package main.br.com.solid.model.projeto.tarefa;
+package main.br.com.solid.model.projeto.tarefa.logwork;
 
 import java.time.LocalDateTime;
 
@@ -10,11 +10,7 @@ public class LogWork {
 	private LocalDateTime horaFim;
 	private Usuario usuario;
 
-	public LogWork(Usuario usuario, LocalDateTime horaInicio, LocalDateTime horaFim) {
-		this.usuario = usuario;
-		this.horaInicio = horaInicio;
-		this.horaFim = horaFim;
-	}
+	protected LogWork() {}
 	
 	public LocalDateTime getHoraInicio() {
 		return horaInicio;
@@ -26,6 +22,18 @@ public class LogWork {
 	
 	public Usuario getUsuario() {
 		return usuario;
+	}
+
+	public void setHoraInicio(LocalDateTime horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public void setHoraFim(LocalDateTime horaFim) {
+		this.horaFim = horaFim;
+	}
+
+	protected void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }

@@ -1,14 +1,13 @@
 package main.br.com.solid.model.projeto.tarefa;
 
-import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.util.Collections.unmodifiableList;
-import static java.util.concurrent.TimeUnit.HOURS;
 import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.br.com.solid.model.projeto.tarefa.logwork.LogWork;
 import main.br.com.solid.model.usuario.Usuario;
 
 public class Tarefa {
@@ -119,11 +118,6 @@ public class Tarefa {
 
 	public List<LogWork> getLogsWorks() {
 		return unmodifiableList(logsWorks);
-	}
-
-	public long getHorasDecorridas() {
-		return HOURS.toMinutes(logsWorks.stream()
-				.mapToLong(log -> log.getHoraInicio().until(log.getHoraFim(), MINUTES)).sum());
 	}
 
 }
