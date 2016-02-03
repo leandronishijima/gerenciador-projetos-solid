@@ -1,6 +1,8 @@
 package main.br.com.solid.model.projeto.tarefa;
 
+import static java.time.temporal.ChronoUnit.MINUTES;
 import static java.util.Collections.unmodifiableList;
+import static java.util.concurrent.TimeUnit.HOURS;
 import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
 
 import java.time.LocalDate;
@@ -10,7 +12,7 @@ import java.util.List;
 import main.br.com.solid.model.usuario.Usuario;
 
 public class Tarefa {
-	
+
 	private String titulo;
 	private String descricao;
 	private CategoriaTarefa categoria;
@@ -22,13 +24,15 @@ public class Tarefa {
 	private LocalDate fimPrevisto;
 	private Estimativa estimativa;
 	private LocalDate dataCriacao;
-	
+	private List<LogWork> logsWorks;
+
 	protected Tarefa() {
 		this.status = EM_ANALISE;
 		this.dataCriacao = LocalDate.now();
 		this.watchers = new ArrayList<Usuario>();
+		this.logsWorks = new ArrayList<LogWork>();
 	}
-	
+
 	public StatusTarefa getStatus() {
 		return status;
 	}
@@ -40,7 +44,7 @@ public class Tarefa {
 	public void adicionaSubResponsavel2(Usuario subresponsavel2) {
 		this.subResponsavel2 = subresponsavel2;
 	}
-	
+
 	public Usuario getSubResponsavel1() {
 		return subResponsavel1;
 	}
@@ -56,15 +60,15 @@ public class Tarefa {
 	public void adicionaWatcher(Usuario watcher) {
 		watchers.add(watcher);
 	}
-	
+
 	public List<Usuario> getWatchers() {
 		return unmodifiableList(watchers);
 	}
-	
+
 	public LocalDate getFimPrevisto() {
 		return fimPrevisto;
 	}
-	
+
 	public void setFimPrevisto(LocalDate fimPrevisto) {
 		this.fimPrevisto = fimPrevisto;
 	}
@@ -72,7 +76,7 @@ public class Tarefa {
 	public LocalDate getInicioPrevisto() {
 		return inicioPrevisto;
 	}
-	
+
 	public void setInicioPrevisto(LocalDate inicioPrevisto) {
 		this.inicioPrevisto = inicioPrevisto;
 	}
@@ -80,7 +84,7 @@ public class Tarefa {
 	public Estimativa getEstimativa() {
 		return estimativa;
 	}
-	
+
 	public void setEstimativa(Estimativa estimativa) {
 		this.estimativa = estimativa;
 	}
@@ -100,13 +104,26 @@ public class Tarefa {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	public CategoriaTarefa getCategoria() {
 		return categoria;
 	}
 
 	public void setCategoria(CategoriaTarefa categoria) {
 		this.categoria = categoria;
+	}
+
+	public void adicionaLogWork(LogWork logWork) {
+		logsWorks.add(logWork);
+	}
+
+	public List<LogWork> getLogsWorks() {
+		return unmodifiableList(logsWorks);
+	}
+
+	public long getHorasDecorridas() {
+		return HOURS.toMinutes(logsWorks.stream()
+				.mapToLong(log -> log.getHoraInicio().until(log.getHoraFim(), MINUTES)).sum());
 	}
 
 }
