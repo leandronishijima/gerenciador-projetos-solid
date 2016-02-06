@@ -1,6 +1,7 @@
 package br.com.solid.model.projeto.tarefa.status;
 
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isADesenvolver;
+import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isDesenvolvendo;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isEmAnalise;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isImpedida;
 import static java.time.Month.JANUARY;
@@ -9,6 +10,7 @@ import static main.br.com.solid.model.projeto.tarefa.Estimativa.UM_DIA;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
@@ -50,7 +52,6 @@ public class ModificadorDeEstadoTarefaTest {
 	@Test
 	public void testa_mudanca_de_estado_de_a_desenvolver_para_desenvolvendo() {
 		changeToADesenvolver();
-		assertThat(tarefa, isADesenvolver());
 		
 		changeToDesenvolvendo();
 	}
@@ -60,11 +61,31 @@ public class ModificadorDeEstadoTarefaTest {
 		changeToADesenvolver();
 		changeToDesenvolvendo();
 		
-		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusImpedida.comMotivoEData("Impedido por motivo de força maior!", LocalDate.now()));
+		changeToImpedida();
 		
 		assertThat(tarefa, isImpedida());
 		assertThat(tarefa.getImpedimento().getMotivo(), equalTo("Impedido por motivo de força maior!"));
 		assertThat(tarefa.getImpedimento().getDataImpedimento(), notNullValue());
+	}
+
+	@Test
+	public void testa_mudanca_de_estado_de_impedida_para_a_desenvolver() {
+		changeToADesenvolver();
+		
+		changeToDesenvolvendo();
+		
+		changeToImpedida();
+		assertThat(tarefa.getImpedimento().getMotivo(), equalTo("Impedido por motivo de força maior!"));
+		assertThat(tarefa.getImpedimento().getDataImpedimento(), notNullValue());
+		assertThat(tarefa.getImpedimento().getDataRetorno(), nullValue());
+		
+		changeToADesenvolver();
+		assertThat(tarefa.getImpedimento().getDataRetorno(), notNullValue());
+	}
+	
+	private void changeToImpedida() {
+		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusImpedida.comMotivoEData("Impedido por motivo de força maior!", LocalDate.now()));
+		assertThat(tarefa, isImpedida());
 	}
 	
 	private void changeToDesenvolvendo() {
@@ -72,13 +93,14 @@ public class ModificadorDeEstadoTarefaTest {
 		
 		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusDesenvolvendo.paraUsuario(usuario));
 		
-		assertThat(tarefa, TarefaStatusMatchers.isDesenvolvendo());
+		assertThat(tarefa, isDesenvolvendo());
 		assertThat(tarefa.getSubResponsavel1(), equalTo(usuario));
 		assertThat(tarefa.getSubResponsavel2(), equalTo(usuario));
 	}
 
 	private void changeToADesenvolver() {
 		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusADesenvolver.instancia());
+		assertThat(tarefa, isADesenvolver());
 	}
 	
 	private Usuario criaUsuarioPadrao() {

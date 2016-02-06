@@ -17,7 +17,9 @@ public class StatusADesenvolver extends Status {
 	
 	@Override
 	List<Status> preCondicoes() {
-		return unmodifiableList(asList(StatusEmAnalise.instancia()));
+		return unmodifiableList(asList(
+				StatusEmAnalise.instancia(), 
+				StatusImpedida.instancia()));
 	}
 
 	@Override
@@ -26,6 +28,9 @@ public class StatusADesenvolver extends Status {
 	}
 
 	@Override
-	void executaAcao(Tarefa tarefaAlvo) {}
+	void executaAcao(Tarefa tarefaAlvo) {
+		if(tarefaAlvo.isImpedida())
+			tarefaAlvo.getImpedimento().retorna();
+	}
 
 }

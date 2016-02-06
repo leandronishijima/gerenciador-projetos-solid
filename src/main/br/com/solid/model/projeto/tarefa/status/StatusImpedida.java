@@ -26,6 +26,11 @@ public class StatusImpedida extends Status {
 	public static StatusImpedida comMotivoEData(String motivo, LocalDate dataImpedimento) {
 		return new StatusImpedida(new Impedimento(motivo, dataImpedimento));
 	}
+	
+	@Override
+	public boolean isStatusImpedida() {
+		return true;
+	}
 
 	@Override
 	List<Status> preCondicoes() {

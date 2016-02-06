@@ -134,4 +134,8 @@ public class Tarefa {
 		this.impedimento = impedimento;
 	}
 
+	public boolean isImpedida() {
+		return getStatus().isStatusImpedida();
+	}
+
 }

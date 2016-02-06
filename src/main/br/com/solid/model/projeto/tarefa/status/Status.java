@@ -12,6 +12,10 @@ public abstract class Status {
 	
 	abstract void executaAcao(Tarefa tarefaAlvo);
 	
+	public boolean isStatusImpedida() {
+		return false;
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		Status other = (Status) obj;
