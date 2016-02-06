@@ -1,13 +1,14 @@
 package main.br.com.solid.model.projeto.tarefa;
 
 import static java.util.Collections.unmodifiableList;
-import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import main.br.com.solid.model.projeto.tarefa.logwork.LogWork;
+import main.br.com.solid.model.projeto.tarefa.status.Status;
+import main.br.com.solid.model.projeto.tarefa.status.StatusEmAnalise;
 import main.br.com.solid.model.usuario.Usuario;
 
 public class Tarefa {
@@ -15,7 +16,7 @@ public class Tarefa {
 	private String titulo;
 	private String descricao;
 	private CategoriaTarefa categoria;
-	private StatusTarefa status;
+	private Status status;
 	private Usuario subResponsavel1;
 	private Usuario subResponsavel2;
 	private List<Usuario> watchers;
@@ -24,16 +25,21 @@ public class Tarefa {
 	private Estimativa estimativa;
 	private LocalDate dataCriacao;
 	private List<LogWork> logsWorks;
+	private Impedimento impedimento;
 
 	protected Tarefa() {
-		this.status = EM_ANALISE;
+		this.status = StatusEmAnalise.instancia();
 		this.dataCriacao = LocalDate.now();
 		this.watchers = new ArrayList<Usuario>();
 		this.logsWorks = new ArrayList<LogWork>();
 	}
 
-	public StatusTarefa getStatus() {
+	public Status getStatus() {
 		return status;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public LocalDate getDataCriacao() {
@@ -118,6 +124,14 @@ public class Tarefa {
 
 	public List<LogWork> getLogsWorks() {
 		return unmodifiableList(logsWorks);
+	}
+
+	public Impedimento getImpedimento() {
+		return impedimento;
+	}
+	
+	public void impede(Impedimento impedimento) {
+		this.impedimento = impedimento;
 	}
 
 }

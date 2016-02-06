@@ -6,6 +6,7 @@ public enum Cargo {
 	DESENVOLVEDOR,
 	TESTER,
 	SUPORTE,
-	ANALISTA;
+	ANALISTA,
+	NULL_CARGO;
 
 }

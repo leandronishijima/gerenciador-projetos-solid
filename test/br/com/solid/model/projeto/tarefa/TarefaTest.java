@@ -3,7 +3,6 @@ package br.com.solid.model.projeto.tarefa;
 import static java.time.Month.JANUARY;
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.BUG;
 import static main.br.com.solid.model.projeto.tarefa.Estimativa.UM_DIA;
-import static main.br.com.solid.model.projeto.tarefa.StatusTarefa.EM_ANALISE;
 import static main.br.com.solid.model.usuario.Cargo.ANALISTA;
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
 import static main.br.com.solid.model.usuario.Cargo.GERENTE;
@@ -15,6 +14,7 @@ import java.time.LocalDate;
 
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
+import main.br.com.solid.model.projeto.tarefa.status.StatusEmAnalise;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
@@ -29,7 +29,7 @@ public class TarefaTest {
 		
 		assertThat(tarefa.getTitulo(), equalTo("Bug!"));
 		assertThat(tarefa.getDescricao(), equalTo("Bug a ser corrigido!"));
-		assertThat(tarefa.getStatus(), equalTo(EM_ANALISE));
+		assertThat(tarefa.getStatus(), equalTo(StatusEmAnalise.instancia()));
 		assertThat(tarefa.getCategoria(), equalTo(BUG));
 		assertThat(tarefa.getDataCriacao(), equalTo(LocalDate.now()));
 	}

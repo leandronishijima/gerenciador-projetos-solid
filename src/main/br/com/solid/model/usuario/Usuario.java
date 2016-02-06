@@ -83,10 +83,9 @@ public class Usuario {
 	public boolean equals(Object obj) {
 		Usuario other = (Usuario) obj;
 		
-		return 
-				getNomeCompleto().equals(other.getNomeCompleto()) &&
-				getUsuario().equals(other.getUsuario()) &&
-				getEmail().equals(other.getEmail());
+		return getNomeCompleto().equals(other.getNomeCompleto()) &&
+			   getUsuario().equals(other.getUsuario()) &&
+			   getEmail().equals(other.getEmail());
 	}
 
 }
