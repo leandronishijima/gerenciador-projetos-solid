@@ -3,8 +3,6 @@ package main.br.com.solid.model.projeto.tarefa;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import main.br.com.solid.model.projeto.tarefa.status.DetalhesTarefa;
-
 public class Tarefa {
 
 	private DetalhesTarefa detalhes;

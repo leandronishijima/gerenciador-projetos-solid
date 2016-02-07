@@ -1,8 +1,9 @@
-package main.br.com.solid.model.projeto.tarefa.status;
+package main.br.com.solid.model.projeto.tarefa;
 
 import java.time.LocalDate;
 
-import main.br.com.solid.model.projeto.tarefa.CategoriaTarefa;
+import main.br.com.solid.model.projeto.tarefa.status.Status;
+import main.br.com.solid.model.projeto.tarefa.status.StatusEmAnalise;
 
 public class DetalhesTarefa {
 	

@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
 
+import main.br.com.solid.model.projeto.tarefa.DetalhesTarefa;
 import main.br.com.solid.model.projeto.tarefa.Responsaveis;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
-import main.br.com.solid.model.projeto.tarefa.status.DetalhesTarefa;
 import main.br.com.solid.model.projeto.tarefa.status.StatusEmAnalise;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
