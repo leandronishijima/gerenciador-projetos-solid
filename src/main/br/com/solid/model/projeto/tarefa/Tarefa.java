@@ -68,5 +68,10 @@ public class Tarefa {
 	public void setDataFinalizacao(LocalDateTime dataFinalizacao) {
 		this.dataFinalizacao = dataFinalizacao;
 	}
+	
+	@Override
+	public String toString() {
+		return getDetalhes().getTitulo();
+	}
 
 }

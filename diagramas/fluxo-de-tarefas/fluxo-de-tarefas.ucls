@@ -27,7 +27,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/Status.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1203" y="507"/>    
+    <position height="-1" width="-1" x="1200" y="529"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -38,7 +38,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/StatusEmAnalise.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="362" y="828"/>    
+    <position height="-1" width="-1" x="408" y="712"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -115,7 +115,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/StatusCancelada.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="147" width="200" x="1816" y="716"/>    
+    <position height="147" width="200" x="1587" y="577"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -126,7 +126,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/Responsaveis.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="185" y="101"/>    
+    <position height="-1" width="-1" x="385" y="116"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -137,7 +137,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/Cancelamento.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="200" y="357"/>    
+    <position height="-1" width="-1" x="387" y="421"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -148,7 +148,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/Impedimento.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="830" y="483"/>    
+    <position height="-1" width="-1" x="892" y="473"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -159,7 +159,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/DetalhesProgressoTarefa.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="494" y="498"/>    
+    <position height="-1" width="-1" x="662" y="480"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -181,7 +181,7 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/DetalhesTarefa.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1884" y="150"/>    
+    <position height="-1" width="-1" x="1607" y="145"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -189,16 +189,18 @@
     </display>  
   </class>  
   <generalization id="18">    
+    <bendpoint x="818" y="662"/>    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
   <association id="19">    
+    <bendpoint x="402" y="285"/>    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="20" name="cancelamento">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="187" y="64"/>      
       </attribute>      
       <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="187" y="64"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -247,10 +249,10 @@
   <association id="32">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="33" name="detalhes">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-277" y="-5"/>      
       </attribute>      
       <multiplicity id="34" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-277" y="-5"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
@@ -259,10 +261,10 @@
   <association id="35">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="36" name="status">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-3" y="22"/>      
       </attribute>      
       <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="-3" y="22"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
@@ -272,10 +274,10 @@
     <bendpoint x="784" y="330"/>    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="39" name="detalhesProgressoTarefa">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="168" y="-18"/>      
       </attribute>      
       <multiplicity id="40" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="168" y="-18"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
@@ -292,10 +294,10 @@
   <association id="43">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="44" name="responsaveis">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="200" y="15"/>      
       </attribute>      
       <multiplicity id="45" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="200" y="15"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
@@ -304,10 +306,10 @@
   <association id="46">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="47" name="impedimento">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="62" y="-10"/>      
       </attribute>      
       <multiplicity id="48" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="62" y="-10"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
