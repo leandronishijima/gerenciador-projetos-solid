@@ -12,6 +12,7 @@ import static org.junit.Assert.assertThat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import main.br.com.solid.model.projeto.tarefa.DetalhesProgressoTarefa;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 import main.br.com.solid.model.projeto.tarefa.logwork.LogWork;
@@ -33,10 +34,12 @@ public class CalculadoraTempoDecorridoTarefa {
 				.iniciouEm(LocalDateTime.of(2016, JANUARY, 1, 9, 00))
 				.finalizouEm(LocalDateTime.of(2016, JANUARY, 1, 12, 00)).build();
 		
-		os.adicionaLogWork(log);
+		DetalhesProgressoTarefa detalhesProgressoTarefa = os.getDetalhesProgressoTarefa();
 		
-		assertThat(os.getLogsWorks(), hasSize(1));
-		assertThat(calculaTempoDecorrido(os.getLogsWorks(), new RegraDeTempoDecorridoEmHoras()), equalTo(10800l));
+		detalhesProgressoTarefa.adicionaLogWork(log);
+		
+		assertThat(detalhesProgressoTarefa.getLogsWorks(), hasSize(1));
+		assertThat(calculaTempoDecorrido(detalhesProgressoTarefa.getLogsWorks(), new RegraDeTempoDecorridoEmHoras()), equalTo(10800l));
 	}
 
 	private Tarefa criaTarefaOsPadrao() {

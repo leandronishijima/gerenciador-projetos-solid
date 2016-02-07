@@ -12,8 +12,10 @@ import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
 
+import main.br.com.solid.model.projeto.tarefa.Responsaveis;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
+import main.br.com.solid.model.projeto.tarefa.status.DetalhesTarefa;
 import main.br.com.solid.model.projeto.tarefa.status.StatusEmAnalise;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
@@ -27,11 +29,13 @@ public class TarefaTest {
 	public void criacao_tarefa_happy_day() {
 		Tarefa tarefa = criaTarefaBugPadrao();
 		
-		assertThat(tarefa.getTitulo(), equalTo("Bug!"));
-		assertThat(tarefa.getDescricao(), equalTo("Bug a ser corrigido!"));
-		assertThat(tarefa.getStatus(), equalTo(StatusEmAnalise.instancia()));
-		assertThat(tarefa.getCategoria(), equalTo(BUG));
-		assertThat(tarefa.getDataCriacao(), equalTo(LocalDate.now()));
+		DetalhesTarefa detalhes = tarefa.getDetalhes();
+		
+		assertThat(detalhes.getTitulo(), equalTo("Bug!"));
+		assertThat(detalhes.getDescricao(), equalTo("Bug a ser corrigido!"));
+		assertThat(detalhes.getStatus(), equalTo(StatusEmAnalise.instancia()));
+		assertThat(detalhes.getCategoria(), equalTo(BUG));
+		assertThat(detalhes.getDataCriacao(), equalTo(LocalDate.now()));
 	}
 	
 	@Test
@@ -40,11 +44,13 @@ public class TarefaTest {
 		
 		Usuario usuario = criaUsuarioPadrao();
 		
-		tarefa.adicionaSubResponsavel1(usuario);
-		tarefa.adicionaSubResponsavel2(usuario);
+		Responsaveis responsaveis = tarefa.getResponsaveis();
 		
-		assertThat(tarefa.getSubResponsavel1(), equalTo(usuario));
-		assertThat(tarefa.getSubResponsavel2(), equalTo(usuario));
+		responsaveis.adicionaSubResponsavel1(usuario);
+		responsaveis.adicionaSubResponsavel2(usuario);
+		
+		assertThat(responsaveis.getSubResponsavel1(), equalTo(usuario));
+		assertThat(responsaveis.getSubResponsavel2(), equalTo(usuario));
 	}
 
 	@Test
@@ -53,20 +59,24 @@ public class TarefaTest {
 		
 		Usuario usuario = criaUsuarioPadrao();
 		
-		tarefa.adicionaWatcher(usuario);
+		Responsaveis responsaveis = tarefa.getResponsaveis();
 		
-		assertThat(tarefa.getWatchers(), hasSize(1));
+		responsaveis.adicionaWatcher(usuario);
+		
+		assertThat(responsaveis.getWatchers(), hasSize(1));
 	}
 	
 	@Test
 	public void adiciona_varios_watchers() {
 		Tarefa tarefa = criaTarefaBugPadrao();
 		
-		tarefa.adicionaWatcher(criaUsuarioPadrao());
-		tarefa.adicionaWatcher(criaUsuario("Nome completo teste", "alguem@github.com", "nome.teste", ANALISTA));
-		tarefa.adicionaWatcher(criaUsuario("Novo nome completo teste", "um_novo_alguem@github.com", "novo.nome", GERENTE));
+		Responsaveis responsaveis = tarefa.getResponsaveis();
 		
-		assertThat(tarefa.getWatchers(), hasSize(3));
+		responsaveis.adicionaWatcher(criaUsuarioPadrao());
+		responsaveis.adicionaWatcher(criaUsuario("Nome completo teste", "alguem@github.com", "nome.teste", ANALISTA));
+		responsaveis.adicionaWatcher(criaUsuario("Novo nome completo teste", "um_novo_alguem@github.com", "novo.nome", GERENTE));
+		
+		assertThat(responsaveis.getWatchers(), hasSize(3));
 	}
 	
 	@Test(expected = UnsupportedOperationException.class)
@@ -75,7 +85,9 @@ public class TarefaTest {
 		
 		Usuario usuario = criaUsuarioPadrao();
 		
-		tarefa.getWatchers().add(usuario);
+		Responsaveis responsaveis = tarefa.getResponsaveis();
+		
+		responsaveis.getWatchers().add(usuario);
 	}
 	
 	private Usuario criaUsuarioPadrao() {

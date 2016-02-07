@@ -26,7 +26,7 @@ public abstract class StatusMatcher extends TypeSafeMatcher<Tarefa> {
 	protected abstract boolean match();
 	
 	protected Status getStatus() {
-		return tarefa.getStatus();
+		return tarefa.getDetalhes().getStatus();
 	}
 
 }

@@ -39,7 +39,7 @@ public class StatusEmTestes extends Status {
 
 	@Override
 	void executaAcao(Tarefa tarefaAlvo) {
-		tarefaAlvo.setUsuarioTestes(usuarioTester);
+		tarefaAlvo.getDetalhesTestesTarefa().setUsuarioTestes(usuarioTester);
 	}
 
 }

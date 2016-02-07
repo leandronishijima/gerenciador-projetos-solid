@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
 
+import main.br.com.solid.model.projeto.tarefa.DetalhesProgressoTarefa;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 import main.br.com.solid.service.projeto.tarefa.calculadoraestimativa.CalculadoraDeEstimativa;
@@ -20,15 +21,16 @@ public class CalculadoraDeEstimativaTest {
 	@Test
 	public void testa_calculo_de_data_fim_prevista() {
 		Tarefa tarefa = criaTarefaBugPadrao();
+		
+		DetalhesProgressoTarefa detalhesProgressoTarefa = tarefa.getDetalhesProgressoTarefa();
 
-		assertThat(tarefa.getFimPrevisto(), nullValue());
-		assertThat(tarefa.getInicioPrevisto().toString(), equalTo("2016-01-29"));
+		assertThat(detalhesProgressoTarefa.getFimPrevisto(), nullValue());
+		assertThat(detalhesProgressoTarefa.getInicioPrevisto().toString(), equalTo("2016-01-29"));
 
-		CalculadoraDeEstimativa calculadora = new CalculadoraDeEstimativa(
-				tarefa);
+		CalculadoraDeEstimativa calculadora = new CalculadoraDeEstimativa(detalhesProgressoTarefa);
 		calculadora.calculaFimPrevisto();
 
-		assertThat(tarefa.getFimPrevisto().toString(), equalTo("2016-01-30"));
+		assertThat(detalhesProgressoTarefa.getFimPrevisto().toString(), equalTo("2016-01-30"));
 	}
 
 	private Tarefa criaTarefaBugPadrao() {

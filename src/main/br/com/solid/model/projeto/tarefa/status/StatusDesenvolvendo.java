@@ -5,6 +5,7 @@ import static java.util.Collections.unmodifiableList;
 
 import java.util.List;
 
+import main.br.com.solid.model.projeto.tarefa.Responsaveis;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioNull;
@@ -45,13 +46,15 @@ public class StatusDesenvolvendo extends Status {
 
 	@Override
 	void executaAcao(Tarefa tarefaAlvo) {
-		if(tarefaAlvo.isImpedida()) {
+		if(tarefaAlvo.getDetalhes().isImpedida()) {
 			tarefaAlvo.getImpedimento().retorna();
 			return;
 		}
 		
-		tarefaAlvo.adicionaSubResponsavel1(subResponsavel1);
-		tarefaAlvo.adicionaSubResponsavel2(subResponsavel2);
+		Responsaveis responsaveis = tarefaAlvo.getResponsaveis();
+		
+		responsaveis.adicionaSubResponsavel1(subResponsavel1);
+		responsaveis.adicionaSubResponsavel2(subResponsavel2);
 	}
 
 }

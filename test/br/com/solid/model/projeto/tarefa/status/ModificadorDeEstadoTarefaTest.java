@@ -20,6 +20,7 @@ import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
 
+import main.br.com.solid.model.projeto.tarefa.Cancelamento;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 import main.br.com.solid.model.projeto.tarefa.status.ModificadorDeEstadoTarefa;
@@ -122,7 +123,7 @@ public class ModificadorDeEstadoTarefaTest {
 		
 		Usuario tester = criaUsuarioDeTestes();
 		changeToAguardandoTestes(tester);
-		assertThat(tarefa.getUsuarioTestes(), equalTo(tester));
+		assertThat(tarefa.getDetalhesTestesTarefa().getUsuarioTestes(), equalTo(tester));
 	}
 
 	@Test
@@ -156,7 +157,11 @@ public class ModificadorDeEstadoTarefaTest {
 		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusCancelada.motivoCancelamento("Fora de escopo!"));
 		assertThat(tarefa, isCancelada());
 		assertThat(tarefa.getDataFinalizacao(), notNullValue());
-		assertThat(tarefa.getMotivoCancelamento(), equalTo("Fora de escopo!"));
+		
+		Cancelamento cancelamento = tarefa.getCancelamento();
+		
+		assertThat(cancelamento.getMotivo(), equalTo("Fora de escopo!"));
+		assertThat(cancelamento.getDataHoraCancelamento(), notNullValue());
 	}
 
 	private void changeToFinalizada() {
@@ -189,8 +194,8 @@ public class ModificadorDeEstadoTarefaTest {
 		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusDesenvolvendo.paraUsuario(usuario));
 		
 		assertThat(tarefa, isDesenvolvendo());
-		assertThat(tarefa.getSubResponsavel1(), equalTo(usuario));
-		assertThat(tarefa.getSubResponsavel2(), equalTo(usuario));
+		assertThat(tarefa.getResponsaveis().getSubResponsavel1(), equalTo(usuario));
+		assertThat(tarefa.getResponsaveis().getSubResponsavel2(), equalTo(usuario));
 	}
 
 	private void changeToADesenvolver() {

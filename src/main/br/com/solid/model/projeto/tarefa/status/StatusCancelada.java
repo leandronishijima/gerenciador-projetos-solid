@@ -6,6 +6,7 @@ import static java.util.Collections.unmodifiableList;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import main.br.com.solid.model.projeto.tarefa.Cancelamento;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 
 public class StatusCancelada extends Status {
@@ -38,7 +39,7 @@ public class StatusCancelada extends Status {
 
 	@Override
 	void executaAcao(Tarefa tarefaAlvo) {
-		tarefaAlvo.setMotivoCancelamento(motivoCAncelamento);
+		tarefaAlvo.cancela(new Cancelamento(motivoCAncelamento));
 		tarefaAlvo.setDataFinalizacao(LocalDateTime.now());
 	}
 

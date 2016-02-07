@@ -29,7 +29,7 @@ public class StatusADesenvolver extends Status {
 
 	@Override
 	void executaAcao(Tarefa tarefaAlvo) {
-		if(tarefaAlvo.isImpedida())
+		if(tarefaAlvo.getDetalhes().isImpedida())
 			tarefaAlvo.getImpedimento().retorna();
 	}
 

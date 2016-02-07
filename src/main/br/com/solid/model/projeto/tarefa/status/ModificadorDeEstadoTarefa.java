@@ -22,11 +22,11 @@ public class ModificadorDeEstadoTarefa {
 			throw new IllegalArgumentException("Status inválido!");
 		
 		status.executaAcao(tarefa);
-		tarefa.setStatus(status);
+		tarefa.getDetalhes().setStatus(status);
 	}
 
 	private boolean isStatusAlvoInvalido() {
-		return !status.preCondicoes().contains(tarefa.getStatus());
+		return !status.preCondicoes().contains(tarefa.getDetalhes().getStatus());
 	}
 
 }

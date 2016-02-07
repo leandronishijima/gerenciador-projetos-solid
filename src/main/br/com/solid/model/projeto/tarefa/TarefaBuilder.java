@@ -16,27 +16,27 @@ public class TarefaBuilder {
 	}
 	
 	public TarefaBuilder titulo(String titulo) {
-		tarefa.setTitulo(titulo);
+		tarefa.getDetalhes().setTitulo(titulo);
 		return this;
 	}
 	
 	public TarefaBuilder comDescricao(String descricao) {
-		tarefa.setDescricao(descricao);
+		tarefa.getDetalhes().setDescricao(descricao);
 		return this;
 	}
 	
 	public TarefaBuilder comEstimativa(Estimativa estimativa) {
-		tarefa.setEstimativa(estimativa);
+		tarefa.getDetalhesProgressoTarefa().setEstimativa(estimativa);
 		return this;
 	}
 	
 	public TarefaBuilder comCategoria(CategoriaTarefa categoria) {
-		tarefa.setCategoria(categoria);
+		tarefa.getDetalhes().setCategoria(categoria);
 		return this;
 	}
 	
 	public TarefaBuilder comPrevisaoDeInicioEm(LocalDate inicioPrevisto) {
-		tarefa.setInicioPrevisto(inicioPrevisto);
+		tarefa.getDetalhesProgressoTarefa().setInicioPrevisto(inicioPrevisto);
 		return this;
 	}
 	
