@@ -138,7 +138,21 @@ public class ModificadorDeEstadoTarefaTest {
 	public void testa_mudanca_de_estado_de_desenvolvimento_para_cancelada() {
 		changeToADesenvolver();
 		changeToDesenvolvendo();
-		
+		changeToCancelada();
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void erro_ao_mudar_status_de_a_desenvolver_para_aguardando_testes() {
+		changeToADesenvolver();
+		changeToAguardandoTestes();
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void erro_ao_mudar_status_de_em_analise_para_impedida() {
+		changeToImpedida();
+	}
+	
+	private void changeToCancelada() {
 		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusCancelada.motivoCancelamento("Fora de escopo!"));
 		assertThat(tarefa, isCancelada());
 		assertThat(tarefa.getDataFinalizacao(), notNullValue());
