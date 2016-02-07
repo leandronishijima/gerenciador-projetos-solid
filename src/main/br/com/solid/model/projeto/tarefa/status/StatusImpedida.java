@@ -11,12 +11,14 @@ import main.br.com.solid.model.projeto.tarefa.Tarefa;
 
 public class StatusImpedida extends Status {
 	
-	private Impedimento impedimento;
+	private String motivo;
+	private LocalDate dataImpedimento;
 
 	private StatusImpedida() {}
 	
-	private StatusImpedida(Impedimento impedimento) {
-		this.impedimento = impedimento;
+	private StatusImpedida(String motivo, LocalDate dataImpedimento) {
+		this.motivo = motivo;
+		this.dataImpedimento = dataImpedimento;
 	}
 
 	public static StatusImpedida instancia() {
@@ -24,7 +26,7 @@ public class StatusImpedida extends Status {
 	}
 	
 	public static StatusImpedida comMotivoEData(String motivo, LocalDate dataImpedimento) {
-		return new StatusImpedida(new Impedimento(motivo, dataImpedimento));
+		return new StatusImpedida(motivo, dataImpedimento);
 	}
 	
 	@Override
@@ -44,7 +46,7 @@ public class StatusImpedida extends Status {
 
 	@Override
 	void executaAcao(Tarefa tarefaAlvo) {
-		tarefaAlvo.impede(impedimento);
+		tarefaAlvo.impede(new Impedimento(motivo, dataImpedimento));
 	}
 
 }
