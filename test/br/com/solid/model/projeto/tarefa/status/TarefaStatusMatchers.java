@@ -1,5 +1,7 @@
 package br.com.solid.model.projeto.tarefa.status;
 
+
+
 public class TarefaStatusMatchers {
 
 	public static StatusMatcher isADesenvolver() {
@@ -24,6 +26,14 @@ public class TarefaStatusMatchers {
 
 	public static StatusMatcher isEmTestes() {
 		return new StatusEmTestesMatcher();
+	}
+
+	public static StatusMatcher isFinalizada() {
+		return new StatusFinalizadaMatcher();
+	}
+
+	public static StatusMatcher isCancelada() {
+		return new StatusCanceladaMatcher();
 	}
 
 }

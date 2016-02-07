@@ -2,9 +2,11 @@ package br.com.solid.model.projeto.tarefa.status;
 
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isADesenvolver;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isAguardandotestes;
+import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isCancelada;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isDesenvolvendo;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isEmAnalise;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isEmTestes;
+import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isFinalizada;
 import static br.com.solid.model.projeto.tarefa.status.TarefaStatusMatchers.isImpedida;
 import static java.time.Month.JANUARY;
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.BUG;
@@ -23,8 +25,10 @@ import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 import main.br.com.solid.model.projeto.tarefa.status.ModificadorDeEstadoTarefa;
 import main.br.com.solid.model.projeto.tarefa.status.StatusADesenvolver;
 import main.br.com.solid.model.projeto.tarefa.status.StatusAguardandoTestes;
+import main.br.com.solid.model.projeto.tarefa.status.StatusCancelada;
 import main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendo;
 import main.br.com.solid.model.projeto.tarefa.status.StatusEmTestes;
+import main.br.com.solid.model.projeto.tarefa.status.StatusFinalizada;
 import main.br.com.solid.model.projeto.tarefa.status.StatusImpedida;
 import main.br.com.solid.model.usuario.Cargo;
 import main.br.com.solid.model.usuario.Usuario;
@@ -116,11 +120,43 @@ public class ModificadorDeEstadoTarefaTest {
 		changeToDesenvolvendo();
 		changeToAguardandoTestes();
 		
-		Usuario tester = criaUsuario("Novo tester", "tester", "123teste", "teste@test.com", TESTER);
+		Usuario tester = criaUsuarioDeTestes();
+		changeToAguardandoTestes(tester);
+		assertThat(tarefa.getUsuarioTestes(), equalTo(tester));
+	}
+
+	@Test
+	public void testa_mudanca_de_estado_de_em_testes_para_finalizada() {
+		changeToADesenvolver();
+		changeToDesenvolvendo();
+		changeToAguardandoTestes();
+		changeToAguardandoTestes(criaUsuarioDeTestes());
+		changeToFinalizada();
+	}
+	
+	@Test
+	public void testa_mudanca_de_estado_de_desenvolvimento_para_cancelada() {
+		changeToADesenvolver();
+		changeToDesenvolvendo();
 		
+		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusCancelada.motivoCancelamento("Fora de escopo!"));
+		assertThat(tarefa, isCancelada());
+		assertThat(tarefa.getDataFinalizacao(), notNullValue());
+		assertThat(tarefa.getMotivoCancelamento(), equalTo("Fora de escopo!"));
+	}
+
+	private void changeToFinalizada() {
+		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusFinalizada.instancia());
+		assertThat(tarefa, isFinalizada());
+	}
+	
+	private void changeToAguardandoTestes(Usuario tester) {
 		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusEmTestes.comTester(tester));
 		assertThat(tarefa, isEmTestes());
-		assertThat(tarefa.getUsuarioTestes(), equalTo(tester));
+	}
+	
+	private Usuario criaUsuarioDeTestes() {
+		return criaUsuario("Novo tester", "tester", "123teste", "teste@test.com", TESTER);
 	}
 
 	private void changeToAguardandoTestes() {

@@ -3,6 +3,7 @@ package main.br.com.solid.model.projeto.tarefa;
 import static java.util.Collections.unmodifiableList;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,9 @@ public class Tarefa {
 	private List<LogWork> logsWorks;
 	private Impedimento impedimento;
 	private LocalDate dataFimDesenvolvimento;
+	private LocalDateTime dataFinalizacao;
 	private Usuario usuarioTeste;
+	private String motivoCancelamento;
 
 	protected Tarefa() {
 		this.status = StatusEmAnalise.instancia();
@@ -158,5 +161,21 @@ public class Tarefa {
 		
 		this.usuarioTeste = usuarioTestes;
 	}
+	
+	public LocalDateTime getDataFinalizacao() {
+		return dataFinalizacao;
+	}
 
+
+	public void setDataFinalizacao(LocalDateTime dataFinalizacao) {
+		this.dataFinalizacao = dataFinalizacao;
+	}
+
+	public String getMotivoCancelamento() {
+		return motivoCancelamento;
+	}
+	
+	public void setMotivoCancelamento(String motivoCancelamento) {
+		this.motivoCancelamento = motivoCancelamento;
+	}
 }
