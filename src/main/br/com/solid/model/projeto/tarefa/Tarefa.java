@@ -26,6 +26,8 @@ public class Tarefa {
 	private LocalDate dataCriacao;
 	private List<LogWork> logsWorks;
 	private Impedimento impedimento;
+	private LocalDate dataFimDesenvolvimento;
+	private Usuario usuarioTeste;
 
 	protected Tarefa() {
 		this.status = StatusEmAnalise.instancia();
@@ -136,6 +138,25 @@ public class Tarefa {
 
 	public boolean isImpedida() {
 		return getStatus().isStatusImpedida();
+	}
+
+	public LocalDate getDataFimDesenvolvimento() {
+		return dataFimDesenvolvimento;
+	}
+
+	public void setFimDesenvolvimento(LocalDate dataFimDesenvolvimento) {
+		this.dataFimDesenvolvimento = dataFimDesenvolvimento;
+	}
+
+	public Usuario getUsuarioTestes() {
+		return usuarioTeste;
+	}
+
+	public void setUsuarioTestes(Usuario usuarioTestes) {
+		if(!usuarioTestes.isTester())
+			throw new IllegalArgumentException("Somente usuários do tipo tester podem testar uma tarefa");
+		
+		this.usuarioTeste = usuarioTestes;
 	}
 
 }

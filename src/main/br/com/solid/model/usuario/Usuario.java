@@ -1,5 +1,7 @@
 package main.br.com.solid.model.usuario;
 
+import static main.br.com.solid.model.usuario.Cargo.TESTER;
+
 public class Usuario {
 	
 	private Long id;
@@ -72,6 +74,10 @@ public class Usuario {
 			throw new IllegalArgumentException();
 		
 		this.cargo = cargo;
+	}
+	
+	public boolean isTester() {
+		return getCargo().equals(TESTER);
 	}
 
 	@Override

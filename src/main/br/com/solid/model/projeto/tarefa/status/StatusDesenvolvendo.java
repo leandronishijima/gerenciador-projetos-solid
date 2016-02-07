@@ -33,7 +33,9 @@ public class StatusDesenvolvendo extends Status {
 	
 	@Override
 	List<Status> preCondicoes() {
-		return unmodifiableList(asList(StatusADesenvolver.instancia(), StatusImpedida.instancia()));
+		return unmodifiableList(asList(
+				StatusADesenvolver.instancia(), 
+				StatusImpedida.instancia()));
 	}
 
 	@Override
@@ -43,6 +45,11 @@ public class StatusDesenvolvendo extends Status {
 
 	@Override
 	void executaAcao(Tarefa tarefaAlvo) {
+		if(tarefaAlvo.isImpedida()) {
+			tarefaAlvo.getImpedimento().retorna();
+			return;
+		}
+		
 		tarefaAlvo.adicionaSubResponsavel1(subResponsavel1);
 		tarefaAlvo.adicionaSubResponsavel2(subResponsavel2);
 	}
