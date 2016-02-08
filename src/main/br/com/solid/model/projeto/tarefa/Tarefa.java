@@ -74,4 +74,8 @@ public class Tarefa {
 		return getDetalhes().getTitulo();
 	}
 
+	public void definePrioridade(Prioridade bloqueador) {
+		getDetalhes().setPrioridade(bloqueador);
+	}
+
 }

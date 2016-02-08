@@ -12,6 +12,7 @@ public class DetalhesTarefa {
 	private LocalDate dataCriacao;
 	private CategoriaTarefa categoria;
 	private Status status;
+	private Prioridade prioridade;
 	
 	public DetalhesTarefa() {
 		this.status = StatusEmAnalise.instancia();
@@ -56,6 +57,14 @@ public class DetalhesTarefa {
 	
 	public boolean isImpedida() {
 		return getStatus().isStatusImpedida();
+	}
+	
+	protected void setPrioridade(Prioridade prioridade) {
+		this.prioridade = prioridade;
+	}
+	
+	public Prioridade getPrioridade() {
+		return prioridade;
 	}
 
 }

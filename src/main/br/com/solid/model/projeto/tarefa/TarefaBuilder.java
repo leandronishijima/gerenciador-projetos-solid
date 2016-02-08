@@ -40,6 +40,11 @@ public class TarefaBuilder {
 		return this;
 	}
 	
+	public TarefaBuilder comPrioridade(Prioridade prioridade) {
+		tarefa.definePrioridade(prioridade);
+		return this;
+	}
+	
 	public Tarefa build() {
 		return tarefa;
 	}
