@@ -1,4 +1,4 @@
-package br.com.solid.model.projeto.tarefa;
+package br.com.solid.model.projeto.tarefa.ordenadorprioridades;
 
 import static java.time.Month.JANUARY;
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.BUG;
@@ -18,14 +18,15 @@ import java.util.List;
 import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.projeto.tarefa.CategoriaTarefa;
 import main.br.com.solid.model.projeto.tarefa.Estimativa;
-import main.br.com.solid.model.projeto.tarefa.OrdenadorDePrioridades;
 import main.br.com.solid.model.projeto.tarefa.Prioridade;
 import main.br.com.solid.model.projeto.tarefa.Tarefa;
 import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
+import main.br.com.solid.model.projeto.tarefa.ordenadorpriodades.OrdenadorDePrioridades;
+import main.br.com.solid.model.projeto.tarefa.ordenadorpriodades.RegraDeOrdenacaoPrioridadeOnly;
 
 import org.junit.Test;
 
-public class OrdenadorDePrioridadesTest {
+public class OrdenadorDePrioridadesPorRegraDePrioridadesOnlyTest {
 
 	@Test
 	public void retorna_prioridade_bloqueador_acima_das_outras() {
@@ -90,10 +91,7 @@ public class OrdenadorDePrioridadesTest {
 	}
 	
 	private List<Tarefa> getTarefasOrdenadasPorPrioridade(List<Tarefa> tarefasASerOrdenadas) {
-		OrdenadorDePrioridades ordenador = new OrdenadorDePrioridades(tarefasASerOrdenadas);
-		ordenador.sort();
-		
-		return ordenador.getListaOrdenada();
+		return OrdenadorDePrioridades.getTarefasOrdenadas(tarefasASerOrdenadas, new RegraDeOrdenacaoPrioridadeOnly());
 	}
 	
 	private Tarefa criaTarefa(String titulo, String descricao, Estimativa estimativa, LocalDate inicioEm, CategoriaTarefa categoriaTarefa, Prioridade prioridade) {
