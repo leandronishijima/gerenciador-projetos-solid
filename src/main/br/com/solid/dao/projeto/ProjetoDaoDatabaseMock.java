@@ -10,7 +10,7 @@ import main.br.com.solid.model.projeto.Projeto;
 
 public class ProjetoDaoDatabaseMock implements ProjetoDao {
 	
-	private static Database dataBaseProjetos;
+	private Database dataBaseProjetos;
 	
 	public ProjetoDaoDatabaseMock() {
 		dataBaseProjetos = Database.getInstance();
