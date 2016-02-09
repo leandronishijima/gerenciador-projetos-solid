@@ -17,7 +17,6 @@ import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
 
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
