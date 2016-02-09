@@ -12,6 +12,7 @@ import java.time.LocalDate;
 
 import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.projeto.calculadoradeestimativa.CalculadoraDeEstimativaProjeto;
+import main.br.com.solid.model.projeto.calculadoradeestimativa.RegraDeCalculoDeEstimativaDeProjetoSimples;
 import main.br.com.solid.model.projeto.tarefa.CategoriaTarefa;
 import main.br.com.solid.model.projeto.tarefa.Estimativa;
 import main.br.com.solid.model.projeto.tarefa.Prioridade;
@@ -30,7 +31,7 @@ public class CalculadoraDeEstimativaProjetoTest {
 		projeto.adicionaTarefa(criaTarefa("OS 2", "Configurar frameworks descritos pela arquitetura", TRES_DIAS, LocalDate.now().plusDays(2), OS, BLOQUEADOR));
 		projeto.adicionaTarefa(criaTarefa("OS 3", "Alinhamento da equipe", TRES_DIAS, LocalDate.now().plusDays(4), OS, CRITICO));
 		
-		CalculadoraDeEstimativaProjeto calculadora = new CalculadoraDeEstimativaProjeto(projeto);
+		CalculadoraDeEstimativaProjeto calculadora = new CalculadoraDeEstimativaProjeto(projeto, new RegraDeCalculoDeEstimativaDeProjetoSimples());
 		assertThat(calculadora.calculaEstimativaEmDias(), equalTo(7l));
 	}
 	
