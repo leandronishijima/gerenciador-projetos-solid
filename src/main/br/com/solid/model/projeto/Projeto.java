@@ -51,6 +51,14 @@ public class Projeto {
 		integrantes.add(usuario);
 	}
 	
+	public void adicionaTarefa(Tarefa tarefa) {
+		tarefas.add(tarefa);
+	}
+
+	public List<Tarefa> getTarefas() {
+		return unmodifiableList(tarefas);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		Projeto other = (Projeto) obj;
@@ -60,14 +68,6 @@ public class Projeto {
 	@Override
 	public String toString() {
 		return getNome();
-	}
-
-	public void adicionaTarefa(Tarefa tarefa) {
-		tarefas.add(tarefa);
-	}
-
-	public List<Tarefa> getTarefas() {
-		return unmodifiableList(tarefas);
 	}
 
 }
