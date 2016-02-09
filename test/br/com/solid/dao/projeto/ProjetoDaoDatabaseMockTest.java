@@ -2,6 +2,7 @@ package br.com.solid.dao.projeto;
 
 import static main.br.com.solid.model.usuario.Cargo.DESENVOLVEDOR;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -16,6 +17,7 @@ import main.br.com.solid.model.projeto.Projeto;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
 
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -76,7 +78,7 @@ public class ProjetoDaoDatabaseMockTest {
 		List<Projeto> listAll = dao.listAll();
 		
 		assertThat(listAll, hasSize(2));
-		assertThat(listAll, contains(projeto1, projeto2));
+		assertThat(listAll, containsInAnyOrder(projeto1, projeto2));
 	}
 	
 	@Test
