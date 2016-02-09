@@ -1,4 +1,4 @@
-package br.com.solid.model.projeto.tarefa;
+package br.com.solid.model.projeto.calculadoradeestimativa;
 
 import static main.br.com.solid.model.projeto.tarefa.CategoriaTarefa.OS;
 import static main.br.com.solid.model.projeto.tarefa.Estimativa.TRES_DIAS;
@@ -10,8 +10,8 @@ import static org.junit.Assert.assertThat;
 
 import java.time.LocalDate;
 
-import main.br.com.solid.model.projeto.CalculadoraDeEstimativaProjeto;
 import main.br.com.solid.model.projeto.Projeto;
+import main.br.com.solid.model.projeto.calculadoradeestimativa.CalculadoraDeEstimativaProjeto;
 import main.br.com.solid.model.projeto.tarefa.CategoriaTarefa;
 import main.br.com.solid.model.projeto.tarefa.Estimativa;
 import main.br.com.solid.model.projeto.tarefa.Prioridade;
@@ -35,14 +35,13 @@ public class CalculadoraDeEstimativaProjetoTest {
 	}
 	
 	private Tarefa criaTarefa(String titulo, String descricao, Estimativa estimativa, LocalDate inicioEm, CategoriaTarefa categoriaTarefa, Prioridade prioridade) {
-		Tarefa tarefa = TarefaBuilder.builder()
+		return TarefaBuilder.builder()
 				.titulo(titulo)
 				.comDescricao(descricao)
 				.comEstimativa(estimativa)
 				.comPrevisaoDeInicioEm(inicioEm)
 				.comCategoria(categoriaTarefa)
 				.comPrioridade(prioridade).build();
-		return tarefa;
 	}
 
 }

@@ -22,9 +22,10 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="main.br.com.solid.model.projeto.CalculadoraDeEstimativaProjeto" 
+  <class id="3" language="java" 
+    name="main.br.com.solid.model.projeto.calculadoradeestimativa.CalculadoraDeEstimativaProjeto" 
     project="gerenciador-projetos-solid" 
-    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/CalculadoraDeEstimativaProjeto.java" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/calculadoradeestimativa/CalculadoraDeEstimativaProjeto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1046" y="561"/>    
     <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
