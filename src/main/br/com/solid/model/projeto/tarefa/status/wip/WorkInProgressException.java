@@ -1,4 +1,4 @@
-package main.br.com.solid.model.projeto.tarefa.responsaveis;
+package main.br.com.solid.model.projeto.tarefa.status.wip;
 
 public class WorkInProgressException extends RuntimeException {
 

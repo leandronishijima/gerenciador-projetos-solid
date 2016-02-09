@@ -5,8 +5,8 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/Tarefa.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="495" width="298" x="312" y="76"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="563" y="363"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -16,113 +16,135 @@
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/responsaveis/Responsaveis.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="140" y="321"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="213" y="361"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendo" 
-    project="gerenciador-projetos-solid" 
-    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/StatusDesenvolvendo.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1024" y="595"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendoValidandoWip" 
-    project="gerenciador-projetos-solid" 
-    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/StatusDesenvolvendoValidandoWip.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1029" y="875"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="main.br.com.solid.model.projeto.tarefa.responsaveis.WorkInProgressException" 
-    project="gerenciador-projetos-solid" 
-    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/responsaveis/WorkInProgressException.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1033" y="153"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="main.br.com.solid.model.projeto.tarefa.status.ModificadorDeEstadoTarefa" 
+  <class id="3" language="java" name="main.br.com.solid.model.projeto.tarefa.status.ModificadorDeEstadoTarefa" 
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/ModificadorDeEstadoTarefa.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="778" y="322"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="969" y="110"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="main.br.com.solid.model.projeto.tarefa.status.Status" 
+  <class id="4" language="java" name="main.br.com.solid.model.projeto.tarefa.status.Status" 
     project="gerenciador-projetos-solid" 
     file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/Status.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1027" y="323"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="-1" width="-1" x="966" y="315"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="8">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <association id="9">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="10" name="tarefa">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="11" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <class id="5" language="java" name="main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendo" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/StatusDesenvolvendo.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="966" y="606"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" language="java" name="main.br.com.solid.model.projeto.tarefa.status.wip.ValidadorWip" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/wip/ValidadorWip.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1354" y="605"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="main.br.com.solid.model.projeto.tarefa.status.wip.ValidadorWipMaximoDois" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/wip/ValidadorWipMaximoDois.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1516" y="783"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="main.br.com.solid.model.projeto.tarefa.status.wip.ValidadorWipNull" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/wip/ValidadorWipNull.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1253" y="782"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="main.br.com.solid.model.projeto.tarefa.status.wip.WorkInProgressException" 
+    project="gerenciador-projetos-solid" 
+    file="/gerenciador-projetos-solid/src/main/br/com/solid/model/projeto/tarefa/status/wip/WorkInProgressException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1355" y="500"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="10">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="11" name="tarefa"/>      
+      <multiplicity id="12" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <association id="12">    
+  <generalization id="13">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <realization id="14">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="15">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="16">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="17" name="validadorWip"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="20" name="status"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="22">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="13" name="responsaveis">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="14" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="23" name="responsaveis"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <association id="15">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="16" name="status">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="17" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <classifier-display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  

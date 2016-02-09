@@ -188,137 +188,137 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="18">    
-    <bendpoint x="818" y="662"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="19">    
-    <bendpoint x="402" y="285"/>    
+  <association id="18">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="20" name="cancelamento">        
-        <position height="0" width="0" x="187" y="64"/>      
-      </attribute>      
-      <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="0" width="0" x="187" y="64"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <generalization id="22">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="23">    
-    <bendpoint x="784" y="330"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="24" name="detalhesProgressoTarefa">        
-        <position height="0" width="0" x="168" y="-18"/>      
-      </attribute>      
-      <multiplicity id="25" minimum="0" maximum="1">        
-        <position height="0" width="0" x="168" y="-18"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="26">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="27" name="detalhes">        
+      <attribute id="19" name="detalhes">        
         <position height="0" width="0" x="-277" y="-5"/>      
       </attribute>      
-      <multiplicity id="28" minimum="0" maximum="1">        
+      <multiplicity id="20" minimum="0" maximum="1">        
         <position height="0" width="0" x="-277" y="-5"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="30" name="status">        
-        <position height="0" width="0" x="-3" y="22"/>      
-      </attribute>      
-      <multiplicity id="31" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-3" y="22"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="34">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="35" name="tarefa">        
-        <position height="0" width="0" x="1041" y="-189"/>      
-      </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1041" y="-189"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="false" multiplicity="false"/>  
-  </association>  
-  <association id="37">    
+  <association id="21">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="38" name="responsaveis">        
+      <attribute id="22" name="responsaveis">        
         <position height="0" width="0" x="200" y="15"/>      
       </attribute>      
-      <multiplicity id="39" minimum="0" maximum="1">        
+      <multiplicity id="23" minimum="0" maximum="1">        
         <position height="0" width="0" x="200" y="15"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <generalization id="41">    
+  <generalization id="24">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="9"/>    
+  <association id="25">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="26" name="tarefa">        
+        <position height="0" width="0" x="1041" y="-189"/>      
+      </attribute>      
+      <multiplicity id="27" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1041" y="-189"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <association id="43">    
+  <association id="29">    
+    <bendpoint x="784" y="330"/>    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="44" name="impedimento">        
+      <attribute id="30" name="detalhesProgressoTarefa">        
+        <position height="0" width="0" x="168" y="-18"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="168" y="-18"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="33" name="impedimento">        
         <position height="0" width="0" x="62" y="-10"/>      
       </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
+      <multiplicity id="34" minimum="0" maximum="1">        
         <position height="0" width="0" x="62" y="-10"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
-  <generalization id="46">    
+  <generalization id="35">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="36">    
+    <bendpoint x="402" y="285"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="37" name="cancelamento">        
+        <position height="0" width="0" x="187" y="64"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="187" y="64"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="39">    
+    <bendpoint x="818" y="662"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="40">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <association id="47">    
+  <association id="41">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="42" name="status">        
+        <position height="0" width="0" x="-3" y="22"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-3" y="22"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="45">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="48" name="detalhesTestesTarefa">        
+      <attribute id="46" name="detalhesTestesTarefa">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="49" minimum="0" maximum="1">        
+      <multiplicity id="47" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="false" multiplicity="false"/>  
   </association>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="49">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

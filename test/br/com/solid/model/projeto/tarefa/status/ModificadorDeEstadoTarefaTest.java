@@ -191,7 +191,7 @@ public class ModificadorDeEstadoTarefaTest {
 	private void changeToDesenvolvendo() {
 		Usuario usuario = criaUsuarioPadrao();
 		
-		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusDesenvolvendo.paraUsuario(usuario));
+		ModificadorDeEstadoTarefa.alteraStatus(tarefa, StatusDesenvolvendo.paraUsuarioSemValidarWip(usuario));
 		
 		assertThat(tarefa, isDesenvolvendo());
 		assertThat(tarefa.getResponsaveis().getSubResponsavel1(), equalTo(usuario));
