@@ -5,3 +5,7 @@
 
 > O projeto proposto para implementar os princípios é um Gerenciador de Projetos, um sistema que seja possível gerenciar 
 > tarefas e pessoas envolvidas em um projeto, com o intuito de obter controle e melhor gestão do tempo do projeto.
+
+# Métricas finais
+
+![METRICS-SOLID](https://github.com/leandronishijima/gerenciador-projetos-solid/blob/master/metrics-all-src-solid.jpg)
