@@ -31,7 +31,7 @@ public class CalculadoraDeEstimativaProjetoTest {
 		projeto.adicionaTarefa(criaTarefa("OS 3", "Alinhamento da equipe", TRES_DIAS, LocalDate.now().plusDays(4), OS, CRITICO));
 		
 		CalculadoraDeEstimativaProjeto calculadora = new CalculadoraDeEstimativaProjeto(projeto);
-		assertThat(calculadora.calcula(), equalTo(7l));
+		assertThat(calculadora.calculaEstimativaEmDias(), equalTo(7l));
 	}
 	
 	private Tarefa criaTarefa(String titulo, String descricao, Estimativa estimativa, LocalDate inicioEm, CategoriaTarefa categoriaTarefa, Prioridade prioridade) {

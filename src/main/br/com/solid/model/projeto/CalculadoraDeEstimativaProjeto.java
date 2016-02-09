@@ -10,7 +10,7 @@ public class CalculadoraDeEstimativaProjeto {
 		this.projeto = projeto;
 	}
 
-	public Long calcula() {
+	public Long calculaEstimativaEmDias() {
 		long t = 0l;
 		
 		for (Tarefa tarefa : projeto.getTarefas())
