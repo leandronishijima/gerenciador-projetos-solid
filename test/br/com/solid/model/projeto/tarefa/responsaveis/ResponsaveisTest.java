@@ -21,8 +21,7 @@ import main.br.com.solid.model.projeto.tarefa.TarefaBuilder;
 import main.br.com.solid.model.projeto.tarefa.responsaveis.Responsaveis;
 import main.br.com.solid.model.projeto.tarefa.responsaveis.WorkInProgressException;
 import main.br.com.solid.model.projeto.tarefa.status.StatusADesenvolver;
-import main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendo;
-import main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendoValidandoSubResponsaveis;
+import main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendoValidandoWip;
 import main.br.com.solid.model.usuario.Usuario;
 import main.br.com.solid.model.usuario.UsuarioBuilder;
 import main.br.com.solid.service.projeto.ProjetoService;
@@ -49,13 +48,13 @@ public class ResponsaveisTest {
 	@Test
 	public void permite_usuario_desenvolver_duas_tarefas_simultaneamente() {
 		Tarefa os1 = geraTarefa("OS 1");
-		alteraStatus(os1, StatusDesenvolvendo.paraUsuario(usuarioPadrao));
+		alteraStatus(os1, StatusDesenvolvendoValidandoWip.paraUsuario(usuarioPadrao));
 		
 		Responsaveis responsaveisOs1 = os1.getResponsaveis();
 		assertThat(usuarioPadrao, allOf(equalTo(responsaveisOs1.getSubResponsavel1()), equalTo(responsaveisOs1.getSubResponsavel2())));
 		
 		Tarefa os2 = geraTarefa("OS 2");
-		alteraStatus(os2, StatusDesenvolvendo.paraUsuario(usuarioPadrao));
+		alteraStatus(os2, StatusDesenvolvendoValidandoWip.paraUsuario(usuarioPadrao));
 		
 		Responsaveis responsaveisOs2 = os2.getResponsaveis();
 		assertThat(usuarioPadrao, allOf(equalTo(responsaveisOs2.getSubResponsavel1()), equalTo(responsaveisOs2.getSubResponsavel2())));
@@ -64,17 +63,17 @@ public class ResponsaveisTest {
 	@Test(expected = WorkInProgressException.class)
 	public void nao_permite_usuario_desenvolver_mais_de_duas_tarefas_simultaneamente() {
 		Tarefa os1 = geraTarefa("OS 1");
-		alteraStatus(os1, StatusDesenvolvendoValidandoSubResponsaveis.paraUsuario(usuarioPadrao, service));
+		alteraStatus(os1, StatusDesenvolvendoValidandoWip.paraUsuario(usuarioPadrao, service));
 		Responsaveis responsaveisOs1 = os1.getResponsaveis();
 		assertThat(usuarioPadrao, allOf(equalTo(responsaveisOs1.getSubResponsavel1()), equalTo(responsaveisOs1.getSubResponsavel2())));
 		
 		Tarefa os2 = geraTarefa("OS 2");
-		alteraStatus(os2, StatusDesenvolvendoValidandoSubResponsaveis.paraUsuario(usuarioPadrao, service));
+		alteraStatus(os2, StatusDesenvolvendoValidandoWip.paraUsuario(usuarioPadrao, service));
 		Responsaveis responsaveisOs2 = os2.getResponsaveis();
 		assertThat(usuarioPadrao, allOf(equalTo(responsaveisOs2.getSubResponsavel1()), equalTo(responsaveisOs2.getSubResponsavel2())));
 		
 		Tarefa os3 = geraTarefa("OS 3");
-		alteraStatus(os3, StatusDesenvolvendoValidandoSubResponsaveis.paraUsuario(usuarioPadrao, service));
+		alteraStatus(os3, StatusDesenvolvendoValidandoWip.paraUsuario(usuarioPadrao, service));
 	}
 
 	private Tarefa geraTarefa(String titulo) {
