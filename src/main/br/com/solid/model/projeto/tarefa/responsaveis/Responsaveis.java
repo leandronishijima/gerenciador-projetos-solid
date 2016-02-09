@@ -1,4 +1,4 @@
-package main.br.com.solid.model.projeto.tarefa;
+package main.br.com.solid.model.projeto.tarefa.responsaveis;
 
 import static java.util.Collections.unmodifiableList;
 
@@ -17,10 +17,6 @@ public class Responsaveis {
 		this.watchers = new ArrayList<Usuario>();
 	}
 	
-	public void adicionaSubResponsavel2(Usuario subresponsavel2) {
-		this.subResponsavel2 = subresponsavel2;
-	}
-
 	public Usuario getSubResponsavel1() {
 		return subResponsavel1;
 	}
@@ -28,9 +24,13 @@ public class Responsaveis {
 	public void adicionaSubResponsavel1(Usuario subresponsavel1) {
 		this.subResponsavel1 = subresponsavel1;
 	}
-
+	
 	public Usuario getSubResponsavel2() {
 		return subResponsavel2;
+	}
+	
+	public void adicionaSubResponsavel2(Usuario subresponsavel2) {
+		this.subResponsavel2 = subresponsavel2;
 	}
 
 	public void adicionaWatcher(Usuario watcher) {

@@ -3,6 +3,9 @@ package main.br.com.solid.model.projeto.tarefa;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import main.br.com.solid.model.projeto.tarefa.responsaveis.Responsaveis;
+import main.br.com.solid.model.projeto.tarefa.status.StatusDesenvolvendo;
+
 public class Tarefa {
 
 	private DetalhesTarefa detalhes;
@@ -76,6 +79,10 @@ public class Tarefa {
 
 	public void definePrioridade(Prioridade bloqueador) {
 		getDetalhes().setPrioridade(bloqueador);
+	}
+
+	public boolean isDesenvolvendo() {
+		return getDetalhes().getStatus() instanceof StatusDesenvolvendo;
 	}
 
 }

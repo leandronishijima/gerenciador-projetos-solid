@@ -4,17 +4,16 @@ import static main.br.com.solid.dao.Database.geraIdUnico;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import main.br.com.solid.dao.Database;
 import main.br.com.solid.model.projeto.Projeto;
 
 public class ProjetoDaoDatabaseMock implements ProjetoDao {
 	
-	private static Map<Long, Projeto> dataBaseProjetos;
+	private static Database dataBaseProjetos;
 	
 	public ProjetoDaoDatabaseMock() {
-		dataBaseProjetos = Database.getInstance().getProjetos();
+		dataBaseProjetos = Database.getInstance();
 	}
 
 	@Override
@@ -22,17 +21,17 @@ public class ProjetoDaoDatabaseMock implements ProjetoDao {
 		if(projeto.getId() == null)
 			projeto.setId(geraIdUnico(projeto));
 		
-		dataBaseProjetos.put(projeto.getId(), projeto);
+		dataBaseProjetos.getProjetos().put(projeto.getId(), projeto);
 	}
 
 	@Override
 	public Projeto pesquisaPorId(Long id) {
-		return dataBaseProjetos.get(id);
+		return dataBaseProjetos.getProjetos().get(id);
 	}
 
 	@Override
 	public List<Projeto> listAll() {
-		return new ArrayList<Projeto>(dataBaseProjetos.values());
+		return new ArrayList<Projeto>(dataBaseProjetos.getProjetos().values());
 	}
 	
 	@Override
@@ -42,7 +41,7 @@ public class ProjetoDaoDatabaseMock implements ProjetoDao {
 		if(projetoPesquisado == null)
 			throw new RuntimeException("Projeto não encontrado!");
 		
-		dataBaseProjetos.remove(projetoPesquisado.getId());
+		dataBaseProjetos.getProjetos().remove(projetoPesquisado.getId());
 	}
 	
 }

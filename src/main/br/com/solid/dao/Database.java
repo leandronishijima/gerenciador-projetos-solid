@@ -34,7 +34,7 @@ public class Database {
 		projetos = new HashMap<Long, Projeto>();
 	}
 	
-	public static Database getInstance() {
+	public static synchronized Database getInstance() {
 		if (instance == null)
 			return new Database();
 		
